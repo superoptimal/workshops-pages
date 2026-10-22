@@ -467,6 +467,7 @@ body{overflow:hidden}
 <nav class="nav" aria-label="Pages">
 <a href="#home" data-go="home">Home</a>
 <a href="#dates" data-go="dates">Dates and cities</a>
+<a href="#topics" data-go="topics">Topics</a>
 <a href="#workshop" data-go="workshop">Workshop</a>
 </nav>
 <div class="side-foot">
@@ -553,6 +554,111 @@ body{overflow:hidden}
 <div class="filters" id="filters" role="tablist" aria-label="Filter by month"></div>
 <div class="frame series-frame"><div id="series"></div><div class="series tba-series"><div class="series-head"><h3>12th city <span>Announced soon</span></h3></div></div></div>
 <p class="foot"><span>© 2026 The Superoptimal</span><a href="https://superoptimal.pipedrive.com/scheduler/4X9vk7CE/meeting-diego-mangabeira-superoptimal" target="_blank" rel="noopener">Sponsors: book a call</a></p>
+</section>
+</div>
+
+<div class="view" id="v-topics" hidden>
+<section class="sec wrap" aria-labelledby="tp-h">
+<div class="sec-head">
+<h2 id="tp-h">What we cover</h2>
+<p>Five modules, one continuous investigation. Every module builds on the last.</p>
+</div>
+
+<div class="frame"><div class="bento" style="grid-template-columns:1fr">
+
+<div class="tile" style="display:flex;flex-direction:column;gap:24px">
+
+<div>
+<span class="label" style="margin-bottom:12px">The central question</span>
+<h3 style="font-size:clamp(22px,2.4vw,30px);letter-spacing:-.04em;line-height:1.1;margin-top:8px">How do you know whether your AI feature is actually working?</h3>
+<p style="color:var(--body);margin-top:10px;max-width:42em">Traditional product analytics tells you what users do. LLM observability tells you what your AI system does. Neither, by itself, tells you whether the AI is delivering value at a sustainable cost. This workshop teaches you to connect all three layers.</p>
+</div>
+
+<hr style="border:none;border-top:1.5px dashed rgba(17,17,20,.15);margin:4px 0">
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+
+<div>
+<div style="font-size:13px;font-weight:700;color:var(--brand);margin-bottom:6px">MODULE 1 · 35 min</div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em">Product health and misleading metrics</h4>
+<p style="color:var(--body);font-size:14.5px;margin-top:6px">Engagement is up, costs are rising, retention is down. Is the product improving or deteriorating? Teams inspect a realistic dashboard and form hypotheses before seeing the full picture.</p>
+<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px;line-height:1.6">
+<li>Adoption, task success, quality, latency, and cost as five dimensions</li>
+<li>Why "messages sent" can mean engagement <em>or</em> frustration</li>
+<li>Designing instrumentation around decisions, not data collection</li>
+</ul>
+</div>
+
+<div>
+<div style="font-size:13px;font-weight:700;color:var(--brand);margin-bottom:6px">MODULE 2 · 35 min</div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em">From black box to trace</h4>
+<p style="color:var(--body);font-size:14.5px;margin-top:6px">Trace a user action through agent execution to the final product outcome. Requests, spans, generations, retrieval, tool calls, retries, errors, and model metadata.</p>
+<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px;line-height:1.6">
+<li>Anatomy of a multi-step LLM trace</li>
+<li>Connecting traces to user sessions and product events</li>
+<li>Diagnosing when the backend succeeds but the user experience fails</li>
+</ul>
+</div>
+
+<div>
+<div style="font-size:13px;font-weight:700;color:var(--brand);margin-bottom:6px">MODULE 3 · 30 min</div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em">Token economics and the cost of intelligence</h4>
+<p style="color:var(--body);font-size:14.5px;margin-top:6px">Move beyond cost-per-API-call to cost per successful task, cost per active user, and gross margin by cohort. Compare model configurations using task outcomes, not token prices.</p>
+<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px;line-height:1.6">
+<li>Input vs. output vs. reasoning tokens, caching, and model routing</li>
+<li>Why the cheapest execution is not the cheapest successful outcome</li>
+<li>Hybrid model strategies and when to escalate</li>
+</ul>
+</div>
+
+<div>
+<div style="font-size:13px;font-weight:700;color:var(--brand);margin-bottom:6px">MODULE 4 · 35 min</div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em">Measuring quality in production</h4>
+<p style="color:var(--body);font-size:14.5px;margin-top:6px">Offline evals, production sampling, LLM-as-judge, human review, and the gap between high scores and actual user satisfaction.</p>
+<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px;line-height:1.6">
+<li>Hallucination rates, citation correctness, task completion</li>
+<li>When the automated judge rewards the wrong behavior</li>
+<li>Designing rubrics that predict real outcomes, not benchmark scores</li>
+</ul>
+</div>
+
+<div>
+<div style="font-size:13px;font-weight:700;color:var(--brand);margin-bottom:6px">MODULE 5 · 40 min</div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em">The product optimization challenge</h4>
+<p style="color:var(--body);font-size:14.5px;margin-top:6px">Teams receive a production dashboard showing rising costs, declining retention, and inconsistent quality. Diagnose the issue, propose an intervention, and design an experiment to prove it works.</p>
+<ul style="margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px;line-height:1.6">
+<li>Switching models, changing prompts, improving retrieval, modifying the UI</li>
+<li>A/B testing with primary metrics, guardrails, and decision rules</li>
+<li>Teams present their diagnosis and defend their shipping decision</li>
+</ul>
+</div>
+
+</div>
+
+<hr style="border:none;border-top:1.5px dashed rgba(17,17,20,.15);margin:4px 0">
+
+<div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em;margin-bottom:10px">Five demonstrations that produce genuine surprises</h4>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+<div style="background:var(--page);border-radius:14px;padding:14px 16px"><b style="font-size:14.5px;letter-spacing:-.02em">The engagement paradox</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">One cohort sends 12 messages per session, the other sends 3. The 12-message cohort has lower task completion and worse retention.</p></div>
+<div style="background:var(--page);border-radius:14px;padding:14px 16px"><b style="font-size:14.5px;letter-spacing:-.02em">The $2 agent task</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">One user request triggers dozens of hidden model and tool calls. Participants uncover a retry loop and unnecessarily large context.</p></div>
+<div style="background:var(--page);border-radius:14px;padding:14px 16px"><b style="font-size:14.5px;letter-spacing:-.02em">The judge that rewards bad answers</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">A verbose, polished answer scores higher than a concise, accurate one. Humans disagree with the automated judge.</p></div>
+<div style="background:var(--page);border-radius:14px;padding:14px 16px"><b style="font-size:14.5px;letter-spacing:-.02em">The mystery of disappearing users</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">Users abandon after an apparently successful response. Session replay reveals they can't find the next action. Not every AI failure is a model failure.</p></div>
+<div style="background:var(--page);border-radius:14px;padding:14px 16px"><b style="font-size:14.5px;letter-spacing:-.02em">The cheaper model wins</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">A smaller model is worse on the benchmark but performs similarly on routine production tasks, with better latency and cost.</p></div>
+</div>
+</div>
+
+<hr style="border:none;border-top:1.5px dashed rgba(17,17,20,.15);margin:4px 0">
+
+<div>
+<h4 style="font-size:19px;font-weight:600;letter-spacing:-.03em;margin-bottom:6px">What you leave with</h4>
+<p style="color:var(--body);font-size:15px;max-width:42em">Each participant or team finishes with four concrete artifacts: an instrumented AI workflow, an event taxonomy, a dashboard specification containing meaningful product and economic metrics, and a proposed experiment with quality and cost guardrails.</p>
+</div>
+
+</div>
+</div></div>
+
+<p class="foot" style="margin-top:20px"><span>&copy; 2026 The Superoptimal</span><a href="https://superoptimal.pipedrive.com/scheduler/4X9vk7CE/meeting-diego-mangabeira-superoptimal" target="_blank" rel="noopener">Sponsors: book a call</a></p>
 </section>
 </div>
 
@@ -679,7 +785,7 @@ document.getElementById('next-up').innerHTML=`<button class="tb-next" type="butt
 
 /* ---------- navigation: three pages + event pages ---------- */
 const stage=document.getElementById('stage'),evp=document.getElementById('event');
-const VIEWS=['home','dates'];
+const VIEWS=['home','dates','topics'];
 const ALIAS={tour:['home'],past:['home','past'],lecturer:['home','lecturer']};
 function setNav(id){document.querySelectorAll('.nav a').forEach(a=>{if(a.dataset.go===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 function toTop(){stage.scrollTop=0;window.scrollTo(0,0)}
