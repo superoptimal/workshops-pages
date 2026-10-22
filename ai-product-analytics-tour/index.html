@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Analyzing Your AI Agents in Production</title>
-<meta name="description" content="Analyzing Your AI Agents in Production. A three-hour, hands-on technical workshop with lecturer Adam Boaz Becker. 12 workshops in 12 cities, December 2026 to April 2027.">
+<title>Product Analytics for AI Features: LLM Traces, Costs &amp; User Behavior Workshop</title>
+<meta name="description" content="Product Analytics for AI Features: LLM Traces, Costs &amp; User Behavior Workshop. A three-hour, hands-on technical workshop with lecturer Adam Boaz Becker. 12 workshops in 12 cities, December 2026 to April 2027.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23A6192E%27/%3E%3Ctext x=%2732%27 y=%2748%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2746%27 fill=%27%23fff%27%3ES%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Analyzing Your AI Agents in Production">
-<meta property="og:description" content="A hands-on AI product analytics workshop with lecturer Adam Boaz Becker. 12 workshops, 12 cities.">
+<meta property="og:title" content="Product Analytics for AI Features: LLM Traces, Costs &amp; User Behavior Workshop">
+<meta property="og:description" content="Product Analytics for AI Features: LLM Traces, Costs &amp; User Behavior. A hands-on workshop with lecturer Adam Boaz Becker. 12 workshops, 12 cities.">
 <meta property="og:image" content="https://superoptimal.github.io/workshops-pages/ai-product-analytics-tour/og.png">
 <link rel="canonical" href="https://superoptimal.github.io/workshops-pages/ai-product-analytics-tour/">
 <meta property="og:url" content="https://superoptimal.github.io/workshops-pages/ai-product-analytics-tour/">
@@ -484,7 +484,7 @@ body{overflow:hidden}
 <section class="frame hero" aria-labelledby="h-title">
 <div class="bento">
 <div class="tile t-intro">
-<h1 id="h-title">Analyzing Your AI Agents in Production</h1>
+<h1 id="h-title">Product Analytics for AI Features: LLM Traces, Costs &amp; User Behavior Workshop</h1>
 <p class="q">Measure what your agents do with real users.</p>
 <div class="intro-foot">
 <p class="lead">A three-hour, hands-on technical workshop with Adam Boaz Becker, CEO of HeadOn. See how a real AI company with active users evaluates its production AI, and learn how to build your own setup. Trace the true cost of every LLM call, score answer quality, and use what you find to improve retention.</p>
@@ -569,23 +569,22 @@ const WORDMARK=document.querySelector('.side .brand').innerHTML;
 
 /* ---------- tour data: edit dates, time zones and registration links here ---------- */
 const SERIES=[
-{name:'The opener',when:'December 2026',m:'December',c:'var(--s0)'},
-{name:'US series',when:'February 2027',m:'February',c:'var(--s1)'},
-{name:'Europe series',when:'March 2027',m:'March',c:'var(--s2)'},
-{name:'Middle East series',when:'April 2027',m:'April',c:'var(--s3)'},
+{name:'US series',when:'February 2027',m:'February',c:'var(--s0)'},
+{name:'Europe series',when:'March 2027',m:'March',c:'var(--s1)'},
+{name:'Middle East series',when:'April 2027',m:'April',c:'var(--s2)'},
 ];
 const STOPS=[
-{k:'nyc',n:'New York',     region:'New York',            s:0,date:'2026-12-10',tz:'EST',t:['#FFD86B','#FF8A3D'],img:'photo-1496588152823-86ff7695e68f',reg:''},
-{k:'sf', n:'San Francisco',region:'California',          s:1,date:'2027-02-04',tz:'PST',t:['#A9E2FF','#5B9BFF'],img:'photo-1525972024754-45abff399a29',reg:''},
-{k:'chi',n:'Chicago',      region:'Illinois',            s:1,date:'2027-02-11',tz:'CST',t:['#C9B8FF','#7A5CFF'],img:'photo-1581373449483-37449f962b6c',reg:''},
-{k:'sea',n:'Seattle',      region:'Washington',          s:1,date:'2027-02-18',tz:'PST',t:['#B8F5DA','#3CC48F'],img:'photo-1542223616-740d5dff7f56',reg:''},
-{k:'aus',n:'Austin',       region:'Texas',               s:1,date:'2027-02-25',tz:'CST',t:['#FFC27A','#FF5E3A'],img:'photo-1666969565832-b55bf42a900d',reg:''},
-{k:'lon',n:'London',       region:'England',             s:2,date:'2027-03-04',tz:'GMT',t:['#FFB3CC','#F0457A'],img:'photo-1508808402998-ec38e4bf0fd0',reg:''},
-{k:'par',n:'Paris',        region:'France',              s:2,date:'2027-03-11',tz:'CET',t:['#FFF0A3','#FFB547'],img:'photo-1626985249964-4fa612df0274',reg:''},
-{k:'ber',n:'Berlin',       region:'Germany',             s:2,date:'2027-03-18',tz:'CET',t:['#B6EEFF','#3FB8EC'],img:'photo-1560930950-5cc20e80e392',reg:''},
-{k:'bcn',n:'Barcelona',    region:'Spain',               s:2,date:'2027-03-25',tz:'CET',t:['#FFC08A','#F2509A'],img:'photo-1650964827770-421afa7960ac',reg:''},
-{k:'tlv',n:'Tel Aviv',     region:'Israel',              s:3,date:'2027-04-08',tz:'IDT',t:['#8EE6FF','#FFE7A0'],img:'photo-1500990702037-7620ccb6a60a',reg:''},
-{k:'dxb',n:'Dubai',        region:'United Arab Emirates',s:3,date:'2027-04-22',tz:'GST',t:['#FFD9A0','#FF7A59'],img:'photo-1623638498061-2fcab5587cb0',reg:''},
+{k:'sf', n:'San Francisco',region:'California',          s:0,date:'2027-02-04',tz:'PST',t:['#A9E2FF','#5B9BFF'],img:'photo-1525972024754-45abff399a29',reg:''},
+{k:'chi',n:'Chicago',      region:'Illinois',            s:0,date:'2027-02-11',tz:'CST',t:['#C9B8FF','#7A5CFF'],img:'photo-1581373449483-37449f962b6c',reg:''},
+{k:'sea',n:'Seattle',      region:'Washington',          s:0,date:'2027-02-18',tz:'PST',t:['#B8F5DA','#3CC48F'],img:'photo-1542223616-740d5dff7f56',reg:''},
+{k:'aus',n:'Austin',       region:'Texas',               s:0,date:'2027-02-25',tz:'CST',t:['#FFC27A','#FF5E3A'],img:'photo-1666969565832-b55bf42a900d',reg:''},
+{k:'nyc',n:'New York',     region:'New York',            s:0,date:'2027-02-28',tz:'EST',t:['#FFD86B','#FF8A3D'],img:'photo-1496588152823-86ff7695e68f',reg:''},
+{k:'lon',n:'London',       region:'England',             s:1,date:'2027-03-04',tz:'GMT',t:['#FFB3CC','#F0457A'],img:'photo-1508808402998-ec38e4bf0fd0',reg:''},
+{k:'par',n:'Paris',        region:'France',              s:1,date:'2027-03-11',tz:'CET',t:['#FFF0A3','#FFB547'],img:'photo-1626985249964-4fa612df0274',reg:''},
+{k:'ber',n:'Berlin',       region:'Germany',             s:1,date:'2027-03-18',tz:'CET',t:['#B6EEFF','#3FB8EC'],img:'photo-1560930950-5cc20e80e392',reg:''},
+{k:'bcn',n:'Barcelona',    region:'Spain',               s:1,date:'2027-03-25',tz:'CET',t:['#FFC08A','#F2509A'],img:'photo-1650964827770-421afa7960ac',reg:''},
+{k:'tlv',n:'Tel Aviv',     region:'Israel',              s:2,date:'2027-04-08',tz:'IDT',t:['#8EE6FF','#FFE7A0'],img:'photo-1500990702037-7620ccb6a60a',reg:''},
+{k:'dxb',n:'Dubai',        region:'United Arab Emirates',s:2,date:'2027-04-22',tz:'GST',t:['#FFD9A0','#FF7A59'],img:'photo-1623638498061-2fcab5587cb0',reg:''},
 ];
 const N=STOPS.length;
 const D=s=>new Date(s+'T12:00:00Z');
@@ -596,7 +595,7 @@ const SC=l=>SERIES[l.s].c;
 const TOTAL=12; /* 11 dated stops plus one city to be announced */
 document.querySelectorAll('.ncity').forEach(e=>e.textContent=TOTAL);
 const IMG=l=>`https://images.unsplash.com/${l.img}?auto=format&fit=crop&w=900&h=900&q=70`;
-function cover(l){return `<div class="cv" style="--img:url('${IMG(l)}')"><div class="cv-top"><span class="cv-mk">S</span><span class="cv-logo">The Superoptimal</span></div><div class="cv-bot"><div class="cv-kick">Hands-on workshop</div><div class="cv-title">Analyzing AI Agents<br><span class="grad">in Production</span></div><div class="cv-meta">${l.n.toUpperCase()}<i></i>${fmt(l.date,{weekday:'short',month:'short',day:'numeric'}).toUpperCase()}</div></div></div>`}
+function cover(l){return `<div class="cv" style="--img:url('${IMG(l)}')"><div class="cv-top"><span class="cv-mk">S</span><span class="cv-logo">The Superoptimal</span></div><div class="cv-bot"><div class="cv-kick">Hands-on workshop</div><div class="cv-title">Product Analytics<br><span class="grad">for AI Features</span></div><div class="cv-meta">${l.n.toUpperCase()}<i></i>${fmt(l.date,{weekday:'short',month:'short',day:'numeric'}).toUpperCase()}</div></div></div>`}
 let nextI=STOPS.findIndex(s=>s.date>=todayISO);if(nextI<0)nextI=N-1;
 
 /* ---------- the evening: kept deliberately light on detail ---------- */
@@ -704,7 +703,7 @@ const g=e.target.closest('[data-go]');if(g){e.preventDefault();show(g.dataset.go
 const HOST_EMAIL='adam@superoptimal.io';
 const UTC_OFF={EST:-5,CST:-6,PST:-8,GMT:0,CET:1,IDT:3,GST:4}; /* offsets on each stop's date */
 const utcStamp=(l,h,m)=>{const [y,mo,dd]=l.date.split('-').map(Number);return new Date(Date.UTC(y,mo-1,dd,h,m)-(UTC_OFF[l.tz]||0)*36e5).toISOString().replace(/[-:]|\.\d{3}/g,'')};
-const evTitle=l=>`Analyzing Your AI Agents in Production: ${l.n}`;
+const evTitle=l=>`Product Analytics for AI Features: ${l.n}`;
 const evURL=l=>location.href.split('#')[0]+'#city-'+l.k;
 const EV_BLURB='Hands-on workshop with lecturer Adam Boaz Becker. Approval required, address sent to approved guests.';
 function gcalURL(l){return 'https://calendar.google.com/calendar/render?'+new URLSearchParams({action:'TEMPLATE',text:evTitle(l),dates:`${utcStamp(l,17,30)}/${utcStamp(l,21,0)}`,details:`${EV_BLURB} ${evURL(l)}`,location:`${l.n}, ${l.region}`})}
@@ -748,7 +747,7 @@ ${nx?`<button class="ev-step nx" type="button" data-ev="${nx.k}" aria-label="Nex
 <div class="side-links"><a href="mailto:${HOST_EMAIL}">Contact the Host</a><span class="tags"><span><i>#</i>AI</span><span><i>#</i>Evals</span><span><i>#</i>Analytics</span></span></div>
 </aside>
 <div class="ev-main">
-<header><div class="kick"><span class="label">AI Product Analytics · stop ${i+1} of ${TOTAL}</span><span class="cd${days<0?' past':''}">${cd}</span></div><h1>Analyzing Your AI Agents in Production <span>${l.n}</span></h1></header>
+<header><div class="kick"><span class="label">AI Product Analytics · stop ${i+1} of ${TOTAL}</span><span class="cd${days<0?' past':''}">${cd}</span></div><h1>Product Analytics for AI Features <span>${l.n}</span></h1></header>
 <div class="where">
 <div class="rows">
 <div class="row-ic"><div class="ic cal"><small>${fmt(l.date,{month:'short'})}</small><strong>${D(l.date).getUTCDate()}</strong></div><div><b>${fmt(l.date,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}</b><span>5:30 PM to 9:00 PM ${l.tz}</span></div></div>
