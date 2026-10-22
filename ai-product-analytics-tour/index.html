@@ -734,7 +734,7 @@ let land='';for(let i=0;i<d.length;i+=2)land+=`<circle cx="${d[i]}" cy="${d[i+1]
 const pts=STOPS.map(l=>MAP.cities[l.k]);
 let pathD=`M${pts[0][0]} ${pts[0][1]}`;const segD=[];
 for(let i=1;i<pts.length;i++){const [x1,y1]=pts[i-1],[x2,y2]=pts[i];const dist=Math.hypot(x2-x1,y2-y1);const lift=Math.min(34,dist*.3);pathD+=` Q${((x1+x2)/2).toFixed(1)} ${((y1+y2)/2-lift).toFixed(1)} ${x2} ${y2}`;segD.push(pathD)}
-const LBL={sf:[0,9,'middle'],chi:[0,-5,'middle'],sea:[-5,-3,'end'],aus:[0,9,'middle'],lon:[-5,-3,'end'],par:[-5,6,'end'],ber:[5,-2,'start'],bcn:[0,9,'middle'],tlv:[-5,8,'end'],dxb:[5,3,'start'],bos:[5,-3,'start'],nyc:[4,8,'start']};
+const LBL={sf:[0,9,'middle'],chi:[0,-5,'middle'],sea:[-5,-3,'end'],aus:[0,9,'middle'],lon:[-5,-3,'end'],par:[-5,6,'end'],ber:[5,-2,'start'],bcn:[0,9,'middle'],ams:[5,-3,'start'],tlv:[-5,8,'end'],dxb:[5,3,'start'],bos:[5,-3,'start'],nyc:[4,8,'start']};
 svg.innerHTML=`<g class="land">${land}</g><path class="route-bg" d="${pathD}"/><path class="route-done" id="rdone" d="${pathD}"/>`+STOPS.map((l,i)=>{const [x,y]=pts[i];const [dx,dy,a]=LBL[l.k];return `<g class="city" data-i="${i}" style="--sc:${SC(l)}"><circle class="halo" cx="${x}" cy="${y}" r="2.4"/><circle class="c" cx="${x}" cy="${y}" r="2.4"/><text x="${x+dx}" y="${y+dy}" text-anchor="${a}">${l.n}</text></g>`}).join('')+`<circle class="plane" id="plane" r="2.6"/>`;
 const rdone=document.getElementById('rdone'),plane=document.getElementById('plane');const L=rdone.getTotalLength();
 const tmp=document.createElementNS(NS,'path');svg.appendChild(tmp);const at=[0,...segD.map(s=>{tmp.setAttribute('d',s);return tmp.getTotalLength()})];tmp.remove();
