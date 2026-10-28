@@ -237,21 +237,27 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ---------- slide 7: stack partners ---------- */
 .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center}
-.stack-vis{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.3fr) minmax(0,.55fr);gap:10px;align-items:center;background:radial-gradient(70% 90% at 50% 40%,#E3EEFD 0%,rgba(227,238,253,0) 70%),var(--page);border-radius:var(--r-lg);padding:18px 14px}
+.stack-vis{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.3fr) minmax(0,.55fr);gap:10px;align-items:center;background:radial-gradient(60% 80% at 50% 45%,#DCE8FA 0%,rgba(220,232,250,0) 72%),#F1F0EA;border-radius:var(--r-lg);padding:18px 14px}
 .stack-vis .city-card h4{font-size:15px}
 .stack-vis .city-card .body{padding:8px 10px 10px}
 .stack-vis .city-card:first-child{transform:rotate(-3deg)}
 .stack-vis .city-card:last-child{transform:rotate(3deg)}
 .stack-svg{width:100%;height:auto;display:block;overflow:visible;max-height:46vh}
 .plate{transform-box:fill-box;transform-origin:center;transition:transform .6s cubic-bezier(.2,.9,.25,1.2),opacity .4s ease}
-.plate path{transition:fill .45s ease,stroke .45s ease;stroke-width:1;stroke:rgba(255,255,255,.55)}
-.plate .t{fill:var(--t)}.plate .l{fill:var(--l)}.plate .r{fill:var(--r)}
-.plate text{font-family:var(--f-sans);font-size:12.5px;font-weight:700;fill:#fff;letter-spacing:-.01em;transition:fill .45s ease}
-.plate text.sub{font-size:10.5px;font-weight:600;fill:rgba(255,255,255,.85)}
+.plate path{transition:fill .45s ease,stroke .45s ease,opacity .45s ease}
+.plate .t{stroke:rgba(22,39,77,.16);stroke-width:1}
+.plate .l,.plate .r{stroke:none}
+.plate .rim{fill:none;stroke:rgba(255,255,255,.9);stroke-width:1.4}
+.plate text{font-family:var(--f-sans);font-size:15px;font-weight:700;fill:#16274D;letter-spacing:-.02em;transition:fill .45s ease}
+.plate text.you{fill:var(--brand)}
+.plate text.sub{font-size:11.5px;font-weight:600;fill:#5A6785;letter-spacing:-.005em}
 .plate.off{transform:translateY(-10px)}
-.plate.off path{fill:rgba(47,111,219,.05);stroke:rgba(47,111,219,.45);stroke-dasharray:4 4}
-.plate.off text{fill:rgba(47,111,219,.65)}
-.plate.off text.sub{fill:rgba(47,111,219,.5)}
+.plate.off .t{fill:rgba(255,255,255,.45);stroke:rgba(22,39,77,.32);stroke-dasharray:4 4}
+.plate.off .l,.plate.off .r{fill:rgba(22,39,77,.05)}
+.plate.off .rim{opacity:0}
+.plate.off text,.plate.off text.you{fill:rgba(22,39,77,.38)}
+.plate.off text.sub{fill:rgba(22,39,77,.3)}
+.stack-shadow{fill:url(#stack-shadow)}
 .play .plate{animation:plateDrop .8s cubic-bezier(.2,.9,.25,1.15) backwards;animation-delay:calc(var(--i) * 160ms + 200ms)}
 @keyframes plateDrop{from{opacity:0;transform:translateY(-46px)}}
 .calc{display:flex;flex-direction:column;gap:12px}
@@ -580,17 +586,20 @@ function tickReel(){later(()=>{setReel(reelI+1,true);if(reelI>=SERIES.length)lat
 function playReel(){setReel(0,false);if(!RM)later(tickReel,900)}
 
 /* ---------- 7. stack partners ---------- */
+/* light tops keep the labels readable; edges use the tour page navy and blue */
 const PLATES=[
-{who:'You',eg:'for example, analytics',t:'#5B9BFF',l:'#2F6FDB',r:'#2459B5'},
-{who:'Partner',eg:'for example, a database',t:'#8EC5FF',l:'#4F8FE8',r:'#3A73C9'},
-{who:'Partner',eg:'for example, inference',t:'#BFE0FF',l:'#7FB2F2',r:'#5F95DA'},
+{who:'You',eg:'for example, analytics',g:['#FFFFFF','#E6EEFB'],l:'#22396B',r:'#16274D',you:1},
+{who:'Partner',eg:'for example, a database',g:['#FFFFFF','#E9F1FD'],l:'#3B76DA',r:'#2A5FBE'},
+{who:'Partner',eg:'for example, inference',g:['#FFFFFF','#EEF5FE'],l:'#7FAAEB',r:'#6593DB'},
 ];
 function plateSVG(p,i){const cx=170,hw=110,hh=40,th=16,y=224-i*78;
 const top=`M${cx} ${y-hh} L${cx+hw} ${y} L${cx} ${y+hh} L${cx-hw} ${y} Z`;
 const left=`M${cx-hw} ${y} L${cx} ${y+hh} L${cx} ${y+hh+th} L${cx-hw} ${y+th} Z`;
 const right=`M${cx} ${y+hh} L${cx+hw} ${y} L${cx+hw} ${y+th} L${cx} ${y+hh+th} Z`;
-return `<g class="plate" data-k="${i}" style="--i:${i};--t:${p.t};--l:${p.l};--r:${p.r}"><path class="l" d="${left}"/><path class="r" d="${right}"/><path class="t" d="${top}"/><text x="${cx}" y="${y-3}" text-anchor="middle">${p.who}</text><text class="sub" x="${cx}" y="${y+11}" text-anchor="middle">${p.eg}</text></g>`}
-$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 282" role="img" aria-label="A stack of three sponsor tools"><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
+const rim=`M${cx-hw} ${y} L${cx} ${y+hh} L${cx+hw} ${y}`;
+return `<g class="plate" data-k="${i}" style="--i:${i}"><path class="l" d="${left}" fill="${p.l}"/><path class="r" d="${right}" fill="${p.r}"/><path class="t" d="${top}" fill="url(#pg${i})"/><path class="rim" d="${rim}"/><text class="${p.you?'you':''}" x="${cx}" y="${y-2}" text-anchor="middle">${p.who}</text><text class="sub" x="${cx}" y="${y+13}" text-anchor="middle">${p.eg}</text></g>`}
+const plateDefs=PLATES.map((p,i)=>`<linearGradient id="pg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p.g[0]}"/><stop offset="1" stop-color="${p.g[1]}"/></linearGradient>`).join('')+`<radialGradient id="stack-shadow"><stop offset="0" stop-color="rgba(22,39,77,.22)"/><stop offset="1" stop-color="rgba(22,39,77,0)"/></radialGradient>`;
+$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 296" role="img" aria-label="A stack of three sponsor tools"><defs>${plateDefs}</defs><ellipse class="stack-shadow" cx="170" cy="284" rx="132" ry="22"/><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
 const plateEls=[...document.querySelectorAll('.plate')];
 let sponsors=PRICING.maxSponsors,shownEach=PRICING.seriesTotal/sponsors,countRaf=0;
 function animateEach(to){cancelAnimationFrame(countRaf);const from=shownEach,t0=performance.now(),dur=RM?0:650;
