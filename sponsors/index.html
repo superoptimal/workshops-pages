@@ -20,7 +20,7 @@
 <style>
 /* Tokens copied from ai-product-analytics-tour. Figtree everywhere; Tinos for the wordmark and accent words. */
 :root{
---page:#F5F5EE; --sand:#EBE6DC; --card:#FFFFFF; --ink:#111114; --body:#2F2B31; --muted:#5F5A62; --soft:#8B858E;
+--page:#F5F5EE; --sand:#EBE6DC; --card:#FFFFFF; --ink:#111114; --body:#2F2B31; --muted:#5F5A62; --soft:#6E6873;
 --line:rgba(17,17,20,.09); --line-2:rgba(17,17,20,.16);
 --brand:#A6192E; --brand-dark:#7E1223; --sun:#FFD86B;
 --blue:#2F6FDB;
@@ -235,23 +235,43 @@ ul,ol{margin:0;padding:0;list-style:none}
 .price p{color:var(--muted);font-size:14.5px}
 .price .tot{margin-top:6px;padding-top:8px;border-top:1.5px dashed color-mix(in srgb,var(--dp) 32%,transparent);font-size:13.5px;color:var(--body)}
 
+/* ---------- slide 3: who is in the room (ICP) ---------- */
+.icp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.icp .soft{display:flex;flex-direction:column;gap:6px}
+.icp .soft h3{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.icp .share{font-size:13px;font-weight:700;color:var(--ink);background:#fff;border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
+.icp .titles{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.icp .titles li{font-size:14px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.75);border-radius:999px;padding:5px 11px;letter-spacing:-.01em}
+.icp .soft p{color:var(--body);font-size:14.5px;line-height:1.4}
+.icp .soft{padding:14px 18px}
+.icp .titles li{font-size:13.5px;padding:4px 10px}
+@media (min-width:901px) and (max-height:960px){.icp{gap:10px}.icp .soft p{display:none}.icp .soft h3{font-size:17.5px}}
+.icp-why{display:flex;align-items:flex-start;gap:10px;font-size:15.5px;font-weight:600;color:var(--ink);max-width:52em}
+.icp-why::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px #FBEFEF}
+
 /* ---------- slide 7: stack partners ---------- */
 .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center}
-.stack-vis{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.3fr) minmax(0,.55fr);gap:10px;align-items:center;background:radial-gradient(70% 90% at 50% 40%,#E3EEFD 0%,rgba(227,238,253,0) 70%),var(--page);border-radius:var(--r-lg);padding:18px 14px}
+.stack-vis{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.3fr) minmax(0,.55fr);gap:10px;align-items:center;background:radial-gradient(60% 80% at 50% 45%,#DCE8FA 0%,rgba(220,232,250,0) 72%),#F1F0EA;border-radius:var(--r-lg);padding:18px 14px}
 .stack-vis .city-card h4{font-size:15px}
 .stack-vis .city-card .body{padding:8px 10px 10px}
 .stack-vis .city-card:first-child{transform:rotate(-3deg)}
 .stack-vis .city-card:last-child{transform:rotate(3deg)}
 .stack-svg{width:100%;height:auto;display:block;overflow:visible;max-height:46vh}
 .plate{transform-box:fill-box;transform-origin:center;transition:transform .6s cubic-bezier(.2,.9,.25,1.2),opacity .4s ease}
-.plate path{transition:fill .45s ease,stroke .45s ease;stroke-width:1;stroke:rgba(255,255,255,.55)}
-.plate .t{fill:var(--t)}.plate .l{fill:var(--l)}.plate .r{fill:var(--r)}
-.plate text{font-family:var(--f-sans);font-size:12.5px;font-weight:700;fill:#fff;letter-spacing:-.01em;transition:fill .45s ease}
-.plate text.sub{font-size:10.5px;font-weight:600;fill:rgba(255,255,255,.85)}
+.plate path{transition:fill .45s ease,stroke .45s ease,opacity .45s ease}
+.plate .t{stroke:rgba(22,39,77,.16);stroke-width:1}
+.plate .l,.plate .r{stroke:none}
+.plate .rim{fill:none;stroke:rgba(255,255,255,.9);stroke-width:1.4}
+.plate text{font-family:var(--f-sans);font-size:15px;font-weight:700;fill:#16274D;letter-spacing:-.02em;transition:fill .45s ease}
+.plate text.you{fill:var(--brand)}
+.plate text.sub{font-size:11.5px;font-weight:600;fill:#5A6785;letter-spacing:-.005em}
 .plate.off{transform:translateY(-10px)}
-.plate.off path{fill:rgba(47,111,219,.05);stroke:rgba(47,111,219,.45);stroke-dasharray:4 4}
-.plate.off text{fill:rgba(47,111,219,.65)}
-.plate.off text.sub{fill:rgba(47,111,219,.5)}
+.plate.off .t{fill:rgba(255,255,255,.45);stroke:rgba(22,39,77,.32);stroke-dasharray:4 4}
+.plate.off .l,.plate.off .r{fill:rgba(22,39,77,.05)}
+.plate.off .rim{opacity:0}
+.plate.off text,.plate.off text.you{fill:rgba(22,39,77,.38)}
+.plate.off text.sub{fill:rgba(22,39,77,.3)}
+.stack-shadow{fill:url(#stack-shadow)}
 .play .plate{animation:plateDrop .8s cubic-bezier(.2,.9,.25,1.15) backwards;animation-delay:calc(var(--i) * 160ms + 200ms)}
 @keyframes plateDrop{from{opacity:0;transform:translateY(-46px)}}
 .calc{display:flex;flex-direction:column;gap:12px}
@@ -297,6 +317,7 @@ body{overflow:hidden}
 .ctrl{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(14px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(245,245,238,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mfoot{display:block;padding:18px 18px 96px;font-size:12px;color:var(--soft)}
 .cur,.split{grid-template-columns:1fr}
+.icp{grid-template-columns:1fr}
 .who{grid-template-rows:none}
 }
 @media (max-width:1100px){
@@ -339,10 +360,10 @@ body{overflow:hidden}
 </aside>
 
 <main class="stage" id="stage">
-<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Sponsor prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 8</span></span></div></div></header>
+<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Sponsorship prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 9</span></span></div></div></header>
 
 <div class="deck">
-<div class="card" role="region" aria-roledescription="slideshow" aria-label="Sponsor prospectus">
+<div class="card" role="region" aria-roledescription="slideshow" aria-label="Sponsorship prospectus">
 <div class="slides" id="slides">
 
 <!-- 1. Who we are -->
@@ -366,7 +387,16 @@ body{overflow:hidden}
 <div class="topics-wrap"><ul class="topics" id="topics" aria-label="Workshop titles"></ul></div>
 </section>
 
-<!-- 3. Curriculum -->
+<!-- 3. Who is in the room (ICP) -->
+<section class="slide" data-name="Who's in the room" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">Who's in the room</span>
+<h2 class="h rise" style="--i:1">Every seat goes to <em>a hands-on engineer</em>.</h2>
+<p class="lead rise" style="--i:2">Seats are approved one by one, so the room stays technical. These are the job titles we build each workshop for.</p>
+<div class="icp" id="icp"></div>
+<p class="icp-why rise" style="--i:7">These are the people who evaluate and choose the tools in their stack, and they leave having built with yours.</p>
+</section>
+
+<!-- 4. Curriculum -->
 <section class="slide" data-name="Curriculum" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Curriculum</span>
 <h2 class="h rise" style="--i:1">Our engineers curate and build the curriculum. <em>Sponsors can influence and co-shape the program.</em></h2>
@@ -382,7 +412,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 4. Cities -->
+<!-- 5. Cities -->
 <section class="slide" data-name="Cities" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Cities</span>
 <h2 class="h rise" style="--i:1">Cities <em>we frequent</em>.</h2>
@@ -394,7 +424,7 @@ body{overflow:hidden}
 <p class="proof rise" style="--i:3">Close to 600 engineers registered for our rooms this fall in Chicago, Seattle, Barcelona and San Francisco.</p>
 </section>
 
-<!-- 5. A series -->
+<!-- 6. A series -->
 <section class="slide" data-name="A series" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">A series, not a one-off</span>
 <h2 class="h rise" style="--i:1">We deliver not just a single workshop, but <em>a series of workshops</em>.</h2>
@@ -402,7 +432,7 @@ body{overflow:hidden}
 <div class="reel-foot rise" style="--i:3"><div class="ticks" id="ticks" aria-hidden="true"></div><span class="small-h">One topic, taught city by city.</span></div>
 </section>
 
-<!-- 6. Pricing -->
+<!-- 7. Pricing -->
 <section class="slide" data-name="Pricing" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Pricing</span>
 <h2 class="h rise" style="--i:1">A series costs less <em>per workshop</em>.</h2>
@@ -413,7 +443,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 7. Stack partners -->
+<!-- 8. Stack partners -->
 <section class="slide" data-name="Stack partners" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Stack partners</span>
 <h2 class="h rise" style="--i:1">Split the cost with <em>a stack partner</em>.</h2>
@@ -430,7 +460,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 8. Speak with us -->
+<!-- 9. Speak with us -->
 <section class="slide cta" data-name="Speak with us" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Next step</span>
 <h2 class="h rise" style="--i:1">Speak <em>with us</em>.</h2>
@@ -484,6 +514,13 @@ dxb:{n:'Dubai',region:'United Arab Emirates',img:'photo-1623638498061-2fcab5587c
 };
 const ROUTE=['sea','sf','aus','chi','nyc','lon','par','ber','bcn','tlv','dxb'];
 const SERIES=['sf','chi','sea','aus','nyc','lon','par','ber','bcn','tlv'];
+/* Who is in the room. Add a share (for example 45) to a group once we have the registration numbers; it shows as a percentage. */
+const ICP=[
+{h:'AI and machine learning engineers',c:'c-sky',share:null,t:['AI engineer','ML engineer','Applied scientist','Agent engineer'],d:'Build the models, retrieval and agents inside the product.'},
+{h:'Software engineers shipping AI features',c:'c-butter',share:null,t:['Backend engineer','Full-stack engineer','Product engineer'],d:'Put AI features in front of real users and own them in production.'},
+{h:'Platform and infrastructure engineers',c:'c-aqua',share:null,t:['Platform engineer','Infrastructure engineer','MLOps engineer','Site reliability engineer'],d:'Run the serving, data and observability stack the features sit on.'},
+{h:'Founders and engineering leads',c:'c-lilac',share:null,t:['Founding engineer','Technical founder','CTO','Staff engineer','Engineering manager'],d:'Write code and make the buying decision for their team.'},
+];
 const AGENDA=[
 ['5:30 PM','Doors open','Food, drinks and laptop setup'],
 ['6:00 PM','Opening talk','The problem, and why it matters in production'],
@@ -509,7 +546,8 @@ function clearTimers(){T.forEach(clearTimeout);T=[]}
 /* ---------- static content ---------- */
 document.querySelectorAll('[data-book]').forEach(a=>a.href=BOOKING_URL);
 document.querySelectorAll('[data-price]').forEach(e=>{const k=e.dataset.price;e.textContent=k==='seriesLength'?PRICING[k]:money(PRICING[k])});
-$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`${ROUTE.length} cities`,`${money(PRICING.single)} per workshop`,`${money(PRICING.seriesPerWorkshop)} per workshop in a series of ${PRICING.seriesLength}`,`Split with stack partners`].map(t=>`<span>${t}</span>`).join('');
+$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`Hands-on engineers only`,`${ROUTE.length} cities`,`${money(PRICING.single)} per workshop`,`${money(PRICING.seriesPerWorkshop)} per workshop in a series of ${PRICING.seriesLength}`,`Split with stack partners`].map(t=>`<span>${t}</span>`).join('');
+$('#icp').innerHTML=ICP.map((g,i)=>`<div class="soft ${g.c} rise" style="--i:${i+3}"><h3><span>${g.h}</span>${g.share?`<span class="share">${g.share}%</span>`:''}</h3><ul class="titles">${g.t.map(x=>`<li>${x}</li>`).join('')}</ul><p>${g.d}</p></div>`).join('');
 $('#agenda').innerHTML=AGENDA.map(([t,h,d,co])=>`<li${co?' class="co"':''}><time>${t}</time><div><b>${h}</b><span>${d}</span>${co?'<span class="co-tag">Co-designed with sponsor</span>':''}</div></li>`).join('');
 const PAL=['c-butter','c-blush','c-sky','c-lilac','c-aqua'];
 $('#topics').innerHTML=TOPICS.map((t,i)=>`<li class="tp ${PAL[i%PAL.length]}">${t}</li>`).join('');
@@ -580,17 +618,20 @@ function tickReel(){later(()=>{setReel(reelI+1,true);if(reelI>=SERIES.length)lat
 function playReel(){setReel(0,false);if(!RM)later(tickReel,900)}
 
 /* ---------- 7. stack partners ---------- */
+/* light tops keep the labels readable; edges use the tour page navy and blue */
 const PLATES=[
-{who:'You',eg:'for example, analytics',t:'#5B9BFF',l:'#2F6FDB',r:'#2459B5'},
-{who:'Partner',eg:'for example, a database',t:'#8EC5FF',l:'#4F8FE8',r:'#3A73C9'},
-{who:'Partner',eg:'for example, inference',t:'#BFE0FF',l:'#7FB2F2',r:'#5F95DA'},
+{who:'You',eg:'for example, analytics',g:['#FFFFFF','#E6EEFB'],l:'#22396B',r:'#16274D',you:1},
+{who:'Partner',eg:'for example, a database',g:['#FFFFFF','#E9F1FD'],l:'#3B76DA',r:'#2A5FBE'},
+{who:'Partner',eg:'for example, inference',g:['#FFFFFF','#EEF5FE'],l:'#7FAAEB',r:'#6593DB'},
 ];
 function plateSVG(p,i){const cx=170,hw=110,hh=40,th=16,y=224-i*78;
 const top=`M${cx} ${y-hh} L${cx+hw} ${y} L${cx} ${y+hh} L${cx-hw} ${y} Z`;
 const left=`M${cx-hw} ${y} L${cx} ${y+hh} L${cx} ${y+hh+th} L${cx-hw} ${y+th} Z`;
 const right=`M${cx} ${y+hh} L${cx+hw} ${y} L${cx+hw} ${y+th} L${cx} ${y+hh+th} Z`;
-return `<g class="plate" data-k="${i}" style="--i:${i};--t:${p.t};--l:${p.l};--r:${p.r}"><path class="l" d="${left}"/><path class="r" d="${right}"/><path class="t" d="${top}"/><text x="${cx}" y="${y-3}" text-anchor="middle">${p.who}</text><text class="sub" x="${cx}" y="${y+11}" text-anchor="middle">${p.eg}</text></g>`}
-$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 282" role="img" aria-label="A stack of three sponsor tools"><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
+const rim=`M${cx-hw} ${y} L${cx} ${y+hh} L${cx+hw} ${y}`;
+return `<g class="plate" data-k="${i}" style="--i:${i}"><path class="l" d="${left}" fill="${p.l}"/><path class="r" d="${right}" fill="${p.r}"/><path class="t" d="${top}" fill="url(#pg${i})"/><path class="rim" d="${rim}"/><text class="${p.you?'you':''}" x="${cx}" y="${y-2}" text-anchor="middle">${p.who}</text><text class="sub" x="${cx}" y="${y+13}" text-anchor="middle">${p.eg}</text></g>`}
+const plateDefs=PLATES.map((p,i)=>`<linearGradient id="pg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p.g[0]}"/><stop offset="1" stop-color="${p.g[1]}"/></linearGradient>`).join('')+`<radialGradient id="stack-shadow"><stop offset="0" stop-color="rgba(22,39,77,.22)"/><stop offset="1" stop-color="rgba(22,39,77,0)"/></radialGradient>`;
+$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 296" role="img" aria-label="A stack of three sponsor tools"><defs>${plateDefs}</defs><ellipse class="stack-shadow" cx="170" cy="284" rx="132" ry="22"/><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
 const plateEls=[...document.querySelectorAll('.plate')];
 let sponsors=PRICING.maxSponsors,shownEach=PRICING.seriesTotal/sponsors,countRaf=0;
 function animateEach(to){cancelAnimationFrame(countRaf);const from=shownEach,t0=performance.now(),dur=RM?0:650;
@@ -607,7 +648,7 @@ setSponsors(sponsors);
 
 /* ---------- slideshow ---------- */
 const slides=[...document.querySelectorAll('.slide')];const N=slides.length;
-const ENTER={1:rotateLogos,2:playTopics,4:playMap,5:playReel};
+const ENTER={'Who we are':rotateLogos,'Topics':playTopics,'Cities':playMap,'A series':playReel};
 $('#bars').innerHTML=slides.map((s,i)=>`<a class="bar" href="#${i+1}" data-go="${i+1}"><i>${String(i+1).padStart(2,'0')}</i><span>${s.dataset.name}</span></a>`).join('');
 const bars=[...document.querySelectorAll('.bar')];
 $('#dots').innerHTML=slides.map((s,i)=>`<button class="dot" type="button" data-go="${i+1}" aria-label="Slide ${i+1}: ${s.dataset.name}"></button>`).join('');
@@ -633,8 +674,8 @@ $('#tip-prev').textContent=n>1?slides[n-2].dataset.name:'';$('#tip-next').textCo
 $('#status').textContent=`Slide ${n} of ${N}: ${s.dataset.name}`;
 box.scrollTop=0;if(cur&&cur!==n)window.scrollTo(0,0);
 cur=n;
-if(ENTER[n])ENTER[n]();
-if(n===7&&!RM)setSponsors(sponsors);
+if(ENTER[s.dataset.name])ENTER[s.dataset.name]();
+if(s.dataset.name==='Stack partners'&&!RM)setSponsors(sponsors);
 if(hist!=='none'){try{history[hist==='push'?'pushState':'replaceState'](null,'','#'+n)}catch(e){}}
 }
 $('#prev').onclick=$('#arrow-prev').onclick=()=>go(cur-1);
@@ -651,7 +692,7 @@ box.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,
 const fromHash=()=>parseInt((location.hash||'').slice(1),10)||1;
 window.addEventListener('popstate',()=>go(fromHash(),'none'));
 window.addEventListener('hashchange',()=>{if(fromHash()!==cur)go(fromHash(),'none')});
-addEventListener('resize',()=>{if(cur===5)setReel(reelI%SERIES.length,false)});
+addEventListener('resize',()=>{if(slides[cur-1]&&slides[cur-1].dataset.name==='A series')setReel(reelI%SERIES.length,false)});
 go(fromHash(),'replace');
 </script>
 </body>
