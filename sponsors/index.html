@@ -20,7 +20,7 @@
 <style>
 /* Tokens copied from ai-product-analytics-tour. Figtree everywhere; Tinos for the wordmark and accent words. */
 :root{
---page:#F5F5EE; --sand:#EBE6DC; --card:#FFFFFF; --ink:#111114; --body:#2F2B31; --muted:#5F5A62; --soft:#6E6873;
+--page:#F5F5EE; --sand:#EBE6DC; --card:#FFFFFF; --ink:#111114; --body:#2F2B31; --muted:#5F5A62; --soft:#8B858E;
 --line:rgba(17,17,20,.09); --line-2:rgba(17,17,20,.16);
 --brand:#A6192E; --brand-dark:#7E1223; --sun:#FFD86B;
 --blue:#2F6FDB;
@@ -143,6 +143,20 @@ ul,ol{margin:0;padding:0;list-style:none}
 .c-aqua{--bg:#DCF4F6;--dp:#1F9AA6}
 
 /* ---------- slide 3: curriculum ---------- */
+/* ---------- audience (ICP) ---------- */
+.icp{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;align-items:stretch}
+.icp-titles{background:var(--page);border-radius:var(--r-md);padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.titles{display:flex;flex-wrap:wrap;gap:8px}
+.titles li{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px 9px 11px;font-size:clamp(14px,1.1vw,16px);font-weight:600;letter-spacing:-.015em}
+.titles li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.play .titles li{animation:tagPop .5s cubic-bezier(.2,.9,.25,1.3) backwards;animation-delay:calc(var(--i) * 60ms + 450ms)}
+.icp-note{font-size:14px;color:var(--muted);margin-top:auto}
+.icp-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.mix{display:flex;flex-direction:column;gap:9px;max-width:880px}
+.mix-row{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr) 48px;gap:12px;align-items:center;font-size:14.5px;font-weight:600}
+.mix-bar{height:12px;border-radius:999px;background:var(--page);overflow:hidden}
+.mix-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--brand),#D9485E);transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.mix-row b{text-align:right;font-variant-numeric:tabular-nums}
 .cur{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;align-items:stretch}
 .agenda{background:var(--page);border-radius:var(--r-md);padding:20px 22px}
 .agenda .small-h{display:block;padding-bottom:10px;margin-bottom:6px;border-bottom:1px solid var(--line)}
@@ -235,20 +249,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .price p{color:var(--muted);font-size:14.5px}
 .price .tot{margin-top:6px;padding-top:8px;border-top:1.5px dashed color-mix(in srgb,var(--dp) 32%,transparent);font-size:13.5px;color:var(--body)}
 
-/* ---------- slide 3: who is in the room (ICP) ---------- */
-.icp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.icp .soft{display:flex;flex-direction:column;gap:6px}
-.icp .soft h3{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.icp .share{font-size:13px;font-weight:700;color:var(--ink);background:#fff;border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
-.icp .titles{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.icp .titles li{font-size:14px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.75);border-radius:999px;padding:5px 11px;letter-spacing:-.01em}
-.icp .soft p{color:var(--body);font-size:14.5px;line-height:1.4}
-.icp .soft{padding:14px 18px}
-.icp .titles li{font-size:13.5px;padding:4px 10px}
-@media (min-width:901px) and (max-height:960px){.icp{gap:10px}.icp .soft p{display:none}.icp .soft h3{font-size:17.5px}}
-.icp-why{display:flex;align-items:flex-start;gap:10px;font-size:15.5px;font-weight:600;color:var(--ink);max-width:52em}
-.icp-why::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px #FBEFEF}
-
 /* ---------- slide 7: stack partners ---------- */
 .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center}
 .stack-vis{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.3fr) minmax(0,.55fr);gap:10px;align-items:center;background:radial-gradient(60% 80% at 50% 45%,#DCE8FA 0%,rgba(220,232,250,0) 72%),#F1F0EA;border-radius:var(--r-lg);padding:18px 14px}
@@ -316,9 +316,8 @@ body{overflow:hidden}
 .arrow{display:none}
 .ctrl{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(14px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(245,245,238,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mfoot{display:block;padding:18px 18px 96px;font-size:12px;color:var(--soft)}
-.cur,.split{grid-template-columns:1fr}
-.icp{grid-template-columns:1fr}
-.who{grid-template-rows:none}
+.cur,.split,.icp{grid-template-columns:1fr}
+.who,.icp-side{grid-template-rows:none}
 }
 @media (max-width:1100px){
 .row-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -360,10 +359,10 @@ body{overflow:hidden}
 </aside>
 
 <main class="stage" id="stage">
-<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Sponsorship prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 9</span></span></div></div></header>
+<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Sponsor prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 8</span></span></div></div></header>
 
 <div class="deck">
-<div class="card" role="region" aria-roledescription="slideshow" aria-label="Sponsorship prospectus">
+<div class="card" role="region" aria-roledescription="slideshow" aria-label="Sponsor prospectus">
 <div class="slides" id="slides">
 
 <!-- 1. Who we are -->
@@ -387,13 +386,18 @@ body{overflow:hidden}
 <div class="topics-wrap"><ul class="topics" id="topics" aria-label="Workshop titles"></ul></div>
 </section>
 
-<!-- 3. Who is in the room (ICP) -->
+<!-- 3. Audience (ICP) -->
 <section class="slide" data-name="Who's in the room" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Who's in the room</span>
-<h2 class="h rise" style="--i:1">Every seat goes to <em>a hands-on engineer</em>.</h2>
-<p class="lead rise" style="--i:2">Seats are approved one by one, so the room stays technical. These are the job titles we build each workshop for.</p>
-<div class="icp" id="icp"></div>
-<p class="icp-why rise" style="--i:7">These are the people who evaluate and choose the tools in their stack, and they leave having built with yours.</p>
+<span class="label rise" style="--i:0">Who is in the room</span>
+<h2 class="h rise" style="--i:1">A technical room. <em>Engineers who ship AI to production.</em></h2>
+<div class="icp">
+<div class="icp-titles rise" style="--i:2"><span class="small-h">Typical job titles</span><ul class="titles" id="titles"></ul><p class="icp-note">Every attendee builds on a laptop during the session. The program is written for engineers, so the room stays technical.</p></div>
+<div class="icp-side">
+<div class="soft c-aqua rise" style="--i:3"><h3>What they build</h3><ul class="bubbles"><li>Agents and copilots</li><li>Retrieval, search and summarization</li><li>Evals, observability and inference</li></ul></div>
+<div class="soft c-lilac rise" style="--i:4"><h3>Why they come</h3><ul class="bubbles"><li>To build with real tools, hands-on</li><li>To learn what holds up in production</li><li>To meet engineers working on the same problems</li></ul></div>
+</div>
+</div>
+<div class="mix rise" style="--i:5" id="mix" hidden></div>
 </section>
 
 <!-- 4. Curriculum -->
@@ -412,7 +416,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 5. Cities -->
+<!-- 4. Cities -->
 <section class="slide" data-name="Cities" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Cities</span>
 <h2 class="h rise" style="--i:1">Cities <em>we frequent</em>.</h2>
@@ -424,7 +428,7 @@ body{overflow:hidden}
 <p class="proof rise" style="--i:3">Close to 600 engineers registered for our rooms this fall in Chicago, Seattle, Barcelona and San Francisco.</p>
 </section>
 
-<!-- 6. A series -->
+<!-- 5. A series -->
 <section class="slide" data-name="A series" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">A series, not a one-off</span>
 <h2 class="h rise" style="--i:1">We deliver not just a single workshop, but <em>a series of workshops</em>.</h2>
@@ -432,7 +436,7 @@ body{overflow:hidden}
 <div class="reel-foot rise" style="--i:3"><div class="ticks" id="ticks" aria-hidden="true"></div><span class="small-h">One topic, taught city by city.</span></div>
 </section>
 
-<!-- 7. Pricing -->
+<!-- 6. Pricing -->
 <section class="slide" data-name="Pricing" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Pricing</span>
 <h2 class="h rise" style="--i:1">A series costs less <em>per workshop</em>.</h2>
@@ -443,7 +447,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 8. Stack partners -->
+<!-- 7. Stack partners -->
 <section class="slide" data-name="Stack partners" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Stack partners</span>
 <h2 class="h rise" style="--i:1">Split the cost with <em>a stack partner</em>.</h2>
@@ -460,7 +464,7 @@ body{overflow:hidden}
 </div>
 </section>
 
-<!-- 9. Speak with us -->
+<!-- 8. Speak with us -->
 <section class="slide cta" data-name="Speak with us" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Next step</span>
 <h2 class="h rise" style="--i:1">Speak <em>with us</em>.</h2>
@@ -514,13 +518,11 @@ dxb:{n:'Dubai',region:'United Arab Emirates',img:'photo-1623638498061-2fcab5587c
 };
 const ROUTE=['sea','sf','aus','chi','nyc','lon','par','ber','bcn','tlv','dxb'];
 const SERIES=['sf','chi','sea','aus','nyc','lon','par','ber','bcn','tlv'];
-/* Who is in the room. Add a share (for example 45) to a group once we have the registration numbers; it shows as a percentage. */
-const ICP=[
-{h:'AI and machine learning engineers',c:'c-sky',share:null,t:['AI engineer','ML engineer','Applied scientist','Agent engineer'],d:'Build the models, retrieval and agents inside the product.'},
-{h:'Software engineers shipping AI features',c:'c-butter',share:null,t:['Backend engineer','Full-stack engineer','Product engineer'],d:'Put AI features in front of real users and own them in production.'},
-{h:'Platform and infrastructure engineers',c:'c-aqua',share:null,t:['Platform engineer','Infrastructure engineer','MLOps engineer','Site reliability engineer'],d:'Run the serving, data and observability stack the features sit on.'},
-{h:'Founders and engineering leads',c:'c-lilac',share:null,t:['Founding engineer','Technical founder','CTO','Staff engineer','Engineering manager'],d:'Write code and make the buying decision for their team.'},
-];
+/* Audience slide. Fill AUDIENCE_MIX with real registration data (for example from Luma exports)
+   and a "Room mix" bar chart appears on the slide, e.g. {role:'AI and ML engineers',pct:45}.
+   Left empty on purpose until we have real numbers. */
+const AUDIENCE_TITLES=['AI Engineer','ML Engineer','Software Engineer','Founding Engineer','Platform and Infrastructure Engineer','Data Engineer','Staff and Principal Engineer','Engineering Manager','CTO and Technical Founder'];
+const AUDIENCE_MIX=[];
 const AGENDA=[
 ['5:30 PM','Doors open','Food, drinks and laptop setup'],
 ['6:00 PM','Opening talk','The problem, and why it matters in production'],
@@ -546,9 +548,11 @@ function clearTimers(){T.forEach(clearTimeout);T=[]}
 /* ---------- static content ---------- */
 document.querySelectorAll('[data-book]').forEach(a=>a.href=BOOKING_URL);
 document.querySelectorAll('[data-price]').forEach(e=>{const k=e.dataset.price;e.textContent=k==='seriesLength'?PRICING[k]:money(PRICING[k])});
-$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`Hands-on engineers only`,`${ROUTE.length} cities`,`${money(PRICING.single)} per workshop`,`${money(PRICING.seriesPerWorkshop)} per workshop in a series of ${PRICING.seriesLength}`,`Split with stack partners`].map(t=>`<span>${t}</span>`).join('');
-$('#icp').innerHTML=ICP.map((g,i)=>`<div class="soft ${g.c} rise" style="--i:${i+3}"><h3><span>${g.h}</span>${g.share?`<span class="share">${g.share}%</span>`:''}</h3><ul class="titles">${g.t.map(x=>`<li>${x}</li>`).join('')}</ul><p>${g.d}</p></div>`).join('');
+$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`${ROUTE.length} cities`,`${money(PRICING.single)} per workshop`,`${money(PRICING.seriesPerWorkshop)} per workshop in a series of ${PRICING.seriesLength}`,`Split with stack partners`].map(t=>`<span>${t}</span>`).join('');
 $('#agenda').innerHTML=AGENDA.map(([t,h,d,co])=>`<li${co?' class="co"':''}><time>${t}</time><div><b>${h}</b><span>${d}</span>${co?'<span class="co-tag">Co-designed with sponsor</span>':''}</div></li>`).join('');
+$('#titles').innerHTML=AUDIENCE_TITLES.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('');
+if(AUDIENCE_MIX.length){const m=$('#mix');m.hidden=false;m.innerHTML='<span class="small-h">Room mix</span>'+AUDIENCE_MIX.map(r=>`<div class="mix-row"><span>${r.role}</span><span class="mix-bar"><i data-pct="${r.pct}"></i></span><b>${r.pct}%</b></div>`).join('')}
+function playMix(){const bars=[...document.querySelectorAll('.mix-bar i')];bars.forEach(b=>b.style.width='0');if(!bars.length)return;later(()=>bars.forEach(b=>b.style.width=b.dataset.pct+'%'),RM?0:500)}
 const PAL=['c-butter','c-blush','c-sky','c-lilac','c-aqua'];
 $('#topics').innerHTML=TOPICS.map((t,i)=>`<li class="tp ${PAL[i%PAL.length]}">${t}</li>`).join('');
 $('#row-cards').innerHTML=SERIES.slice(0,4).map(cityCard).join('')+`<div class="more"><b>+${PRICING.seriesLength-4}</b><span>more cities in the series</span></div>`;
@@ -648,7 +652,7 @@ setSponsors(sponsors);
 
 /* ---------- slideshow ---------- */
 const slides=[...document.querySelectorAll('.slide')];const N=slides.length;
-const ENTER={'Who we are':rotateLogos,'Topics':playTopics,'Cities':playMap,'A series':playReel};
+const ENTER={'Who we are':rotateLogos,'Topics':playTopics,"Who's in the room":playMix,'Cities':playMap,'A series':playReel};
 $('#bars').innerHTML=slides.map((s,i)=>`<a class="bar" href="#${i+1}" data-go="${i+1}"><i>${String(i+1).padStart(2,'0')}</i><span>${s.dataset.name}</span></a>`).join('');
 const bars=[...document.querySelectorAll('.bar')];
 $('#dots').innerHTML=slides.map((s,i)=>`<button class="dot" type="button" data-go="${i+1}" aria-label="Slide ${i+1}: ${s.dataset.name}"></button>`).join('');
@@ -674,7 +678,7 @@ $('#tip-prev').textContent=n>1?slides[n-2].dataset.name:'';$('#tip-next').textCo
 $('#status').textContent=`Slide ${n} of ${N}: ${s.dataset.name}`;
 box.scrollTop=0;if(cur&&cur!==n)window.scrollTo(0,0);
 cur=n;
-if(ENTER[s.dataset.name])ENTER[s.dataset.name]();
+const hook=ENTER[s.dataset.name];if(hook)hook();
 if(s.dataset.name==='Stack partners'&&!RM)setSponsors(sponsors);
 if(hist!=='none'){try{history[hist==='push'?'pushState':'replaceState'](null,'','#'+n)}catch(e){}}
 }
@@ -692,7 +696,7 @@ box.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,
 const fromHash=()=>parseInt((location.hash||'').slice(1),10)||1;
 window.addEventListener('popstate',()=>go(fromHash(),'none'));
 window.addEventListener('hashchange',()=>{if(fromHash()!==cur)go(fromHash(),'none')});
-addEventListener('resize',()=>{if(slides[cur-1]&&slides[cur-1].dataset.name==='A series')setReel(reelI%SERIES.length,false)});
+addEventListener('resize',()=>{if(cur===5)setReel(reelI%SERIES.length,false)});
 go(fromHash(),'replace');
 </script>
 </body>
