@@ -84,9 +84,25 @@ ul,ol{margin:0;padding:0;list-style:none}
 .deck{flex:1;min-height:0;display:flex;padding:14px 20px 14px}
 .card{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow);position:relative}
 .slides{flex:1;min-height:0;position:relative}
-.slide{min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.6vh,28px);padding:clamp(24px,3.6vw,56px) clamp(22px,4vw,64px) 12px}
-.slide.enter{animation:viewIn .45s ease}
-@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slide{--px:clamp(84px,7vw,112px);--dir:1;min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.6vh,28px);padding:clamp(24px,3.6vw,56px) var(--px) 12px}
+/* slides move sideways: forward comes in from the right, back from the left */
+.slide.enter{animation:slideIn .5s cubic-bezier(.2,.8,.2,1) .14s backwards}
+.slide.leave{position:absolute;top:0;left:0;right:0;pointer-events:none;animation:slideOut .24s cubic-bezier(.4,0,1,1) forwards}
+@keyframes slideIn{from{opacity:0;transform:translateX(calc(var(--dir) * 80px))}}
+@keyframes slideOut{to{opacity:0;transform:translateX(calc(var(--dir) * -80px))}}
+/* side arrows (styled like the tour page's city arrows) */
+.arrow{position:absolute;top:50%;z-index:3;width:56px;height:56px;margin-top:-28px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 10px 26px -10px rgba(40,20,40,.45),0 0 0 1px rgba(17,17,20,.08);display:grid;place-items:center;cursor:pointer;transition:transform .15s ease,background .15s ease,color .15s ease}
+.arrow svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.arrow:hover{background:var(--ink);color:#fff;transform:scale(1.06)}
+.arrow.pv{left:18px}.arrow.nx{right:18px}
+.arrow .tip{position:absolute;top:calc(100% + 8px);white-space:nowrap;font-size:12.5px;font-weight:700;color:var(--ink);background:#fff;border-radius:999px;padding:4px 10px;box-shadow:var(--shadow);opacity:0;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none}
+.arrow.nx .tip{right:0}.arrow.pv .tip{left:0}
+.arrow:hover .tip,.arrow:focus-visible .tip{opacity:1;transform:none}
+.dots{display:flex;align-items:center;gap:2px;padding-left:4px}
+.dot{border:0;background:none;padding:6px 3px;cursor:pointer;display:grid;place-items:center}
+.dot::before{content:"";display:block;width:8px;height:8px;border-radius:999px;background:var(--line-2);transition:width .3s ease,background .3s ease}
+.dot:hover::before{background:var(--soft)}
+.dot[aria-current="true"]::before{width:28px;background:var(--brand)}
 .ctrl{display:flex;align-items:center;gap:10px;padding:12px clamp(16px,2vw,24px) clamp(16px,2vw,22px)}
 .ctrl .where{font-size:13.5px;font-weight:600;color:var(--soft);padding-left:8px}
 .ctrl .where b{color:var(--ink);font-weight:700}
@@ -98,8 +114,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .h em{font-family:var(--f-serif);font-style:normal;font-weight:400;letter-spacing:-.02em;color:var(--brand)}
 .lead{color:var(--body);font-size:clamp(16px,1.3vw,19px);max-width:40em}
 .small-h{font-size:14px;font-weight:600;color:var(--muted)}
-.play .rise{animation:riseIn .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0) * 90ms + 120ms)}
-@keyframes riseIn{from{opacity:0;transform:translateY(10px)}}
+.play .rise{animation:riseIn .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0) * 90ms + 220ms)}
+@keyframes riseIn{from{opacity:0;transform:translateX(calc(var(--dir,1) * 22px))}}
 
 /* ---------- slide 1: rotating logo grid ---------- */
 .from{display:flex;flex-direction:column;gap:12px;margin-top:4px}
@@ -192,7 +208,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @container (max-width:170px){.cv-kick,.cv-meta{display:none}}
 
 /* ---------- slide 5: the series reel ---------- */
-.reel{--cw:clamp(170px,15.5vw,224px);--gap:16px;overflow:hidden;margin:0 calc(clamp(22px,4vw,64px) * -1);padding:14px clamp(22px,4vw,64px) 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel{--cw:clamp(170px,15.5vw,224px);--gap:16px;overflow:hidden;margin:0 calc(var(--px) * -1);padding:14px var(--px) 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .reel-track{display:flex;gap:var(--gap);width:max-content}
 .reel-track.go{transition:transform .8s cubic-bezier(.65,0,.35,1)}
 .reel .city-card{width:var(--cw);flex:none}
@@ -261,7 +277,7 @@ body{overflow:hidden}
 .app{display:grid;grid-template-columns:248px minmax(0,1fr);height:100%}
 .side{margin:14px 0 14px 14px;height:calc(100% - 28px)}
 .stage{height:100%}
-.slides{overflow:auto;overscroll-behavior:contain}
+.slides{overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
 }
 /* ---------- tablet and mobile ---------- */
 @media (max-width:900px){
@@ -275,7 +291,9 @@ body{overflow:hidden}
 .bar i{width:auto}
 .deck{padding:12px 12px 0}
 .card{border-radius:24px}
-.slide{justify-content:flex-start;padding:24px 18px 20px}
+.slides{overflow-x:clip}
+.slide{--px:18px;justify-content:flex-start;padding:24px var(--px) 20px}
+.arrow{display:none}
 .ctrl{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(14px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(245,245,238,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mfoot{display:block;padding:18px 18px 96px;font-size:12px;color:var(--soft)}
 .cur,.split{grid-template-columns:1fr}
@@ -301,7 +319,7 @@ body{overflow:hidden}
 .stack-svg{max-height:230px}
 .tl li{gap:1.4em;grid-template-columns:4.4em minmax(0,1fr)}
 .tl li::before{left:5em}.tl li::after{left:5.2em}
-.ctrl .where{display:none}
+.ctrl .dots{display:none}
 .ctrl .btns{flex:1}
 .ctrl .btns .pill{flex:1}
 .seg button{padding:8px 12px;font-size:14px}
@@ -422,8 +440,10 @@ body{overflow:hidden}
 </section>
 
 </div>
+<button class="arrow pv" type="button" id="arrow-prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span class="tip" id="tip-prev"></span></button>
+<button class="arrow nx" type="button" id="arrow-next" aria-label="Next slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="tip" id="tip-next"></span></button>
 <nav class="ctrl" aria-label="Slide controls">
-<span class="where" id="where"></span>
+<div class="dots" id="dots"></div>
 <div class="btns">
 <button class="pill ghost" type="button" id="prev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Previous</button>
 <button class="pill dark" type="button" id="next">Next<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -590,17 +610,26 @@ const slides=[...document.querySelectorAll('.slide')];const N=slides.length;
 const ENTER={1:rotateLogos,2:playTopics,4:playMap,5:playReel};
 $('#bars').innerHTML=slides.map((s,i)=>`<a class="bar" href="#${i+1}" data-go="${i+1}"><i>${String(i+1).padStart(2,'0')}</i><span>${s.dataset.name}</span></a>`).join('');
 const bars=[...document.querySelectorAll('.bar')];
+$('#dots').innerHTML=slides.map((s,i)=>`<button class="dot" type="button" data-go="${i+1}" aria-label="Slide ${i+1}: ${s.dataset.name}"></button>`).join('');
+const dotEls=[...document.querySelectorAll('.dot')];
+let leaving=null,leaveT=0;
+function finishLeave(){clearTimeout(leaveT);if(leaving){leaving.hidden=true;leaving.classList.remove('leave');leaving=null}}
 slides.forEach((s,i)=>s.setAttribute('aria-label',`${i+1} of ${N}: ${s.dataset.name}`));
 const box=$('#slides');let cur=0;
 function go(n,hist='push'){n=Math.max(1,Math.min(N,n|0||1));
 clearTimers();mapOn=false;
-slides.forEach((s,i)=>{const on=i===n-1;s.hidden=!on;s.classList.remove('enter','play')});
-const s=slides[n-1];void s.offsetWidth;if(!RM)s.classList.add('enter','play');
+const dir=cur&&n<cur?-1:1,old=cur&&cur!==n?slides[cur-1]:null;
+finishLeave();
+slides.forEach((x,i)=>{x.classList.remove('enter','play','leave');x.hidden=i!==n-1&&x!==old});
+const s=slides[n-1];s.style.setProperty('--dir',dir);void s.offsetWidth;if(!RM)s.classList.add('enter','play');
+if(old){if(RM)old.hidden=true;else{old.style.setProperty('--dir',dir);old.classList.add('leave');leaving=old;leaveT=setTimeout(finishLeave,260)}}
 bars.forEach((b,i)=>{b.setAttribute('aria-current',String(i===n-1));b.classList.toggle('seen',i<n-1)});
 const cb=bars[n-1],bl=cb.parentElement;if(bl.scrollWidth>bl.clientWidth)bl.scrollTo({left:cb.offsetLeft-bl.clientWidth/2+cb.offsetWidth/2,behavior:RM?'auto':'smooth'});
 $('#prev').hidden=n===1;$('#next').hidden=n===N;$('#next-book').hidden=n!==N;
 $('#tb-count').textContent=`${n} / ${N}`;
-$('#where').innerHTML=n<N?`<b>${String(n).padStart(2,'0')}</b> / ${String(N).padStart(2,'0')} · Next: ${slides[n].dataset.name}`:`<b>${String(n).padStart(2,'0')}</b> / ${String(N).padStart(2,'0')}`;
+dotEls.forEach((d,i)=>d.setAttribute('aria-current',String(i===n-1)));
+$('#arrow-prev').hidden=n===1;$('#arrow-next').hidden=n===N;
+$('#tip-prev').textContent=n>1?slides[n-2].dataset.name:'';$('#tip-next').textContent=n<N?'Next: '+slides[n].dataset.name:'';
 $('#status').textContent=`Slide ${n} of ${N}: ${s.dataset.name}`;
 box.scrollTop=0;if(cur&&cur!==n)window.scrollTo(0,0);
 cur=n;
@@ -608,8 +637,8 @@ if(ENTER[n])ENTER[n]();
 if(n===7&&!RM)setSponsors(sponsors);
 if(hist!=='none'){try{history[hist==='push'?'pushState':'replaceState'](null,'','#'+n)}catch(e){}}
 }
-$('#prev').onclick=()=>go(cur-1);
-$('#next').onclick=()=>go(cur+1);
+$('#prev').onclick=$('#arrow-prev').onclick=()=>go(cur-1);
+$('#next').onclick=$('#arrow-next').onclick=()=>go(cur+1);
 document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){e.preventDefault();go(+g.dataset.go)}});
 document.addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;
 const tag=(e.target.tagName||'');const onControl=/^(BUTTON|A|INPUT|TEXTAREA|SELECT)$/.test(tag);
