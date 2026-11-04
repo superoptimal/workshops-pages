@@ -365,11 +365,11 @@ body{overflow:hidden}
 .layer p{font-size:14.5px;color:var(--body);line-height:1.4}
 .builds{margin-top:4px}
 .builds p{font-size:15px;color:var(--body);line-height:1.45;margin-top:4px}
+.stack-price{font-size:clamp(16px,1.25vw,18px);font-weight:500;letter-spacing:-.015em;color:var(--ink)}
+.stack-price b{color:var(--brand);font-weight:700;font-variant-numeric:tabular-nums}
 .steps{display:flex;flex-direction:column;gap:10px;max-width:46em}
 .steps li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;font-size:clamp(16px,1.25vw,18px);color:var(--body);line-height:1.45}
 .steps li i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center}
-.blurb{max-width:52em}
-.blurb blockquote{font-size:clamp(15px,1.15vw,17px);color:var(--body);line-height:1.55;margin-top:6px}
 .contacts{font-size:14.5px;color:var(--body)}
 .contacts b{color:var(--ink)}
 .contacts a{color:inherit}
@@ -407,7 +407,7 @@ body{overflow:hidden}
 </ul></div>
 <div class="soft c-lilac rise" style="--i:4"><h3>Your questions, answered</h3><dl class="qa">
 <div><dt>Which tools are in the stack?</dt><dd>Three options, one per slide (<a href="#2" data-go="2">slides 2 to 4</a>). They are starting points in no particular order, and any partner that shares the cost works.</dd></div>
-<div><dt>What does a series cost?</dt><dd>Diego shares pricing; we welcome your proposed rate.</dd></div>
+<div><dt>What does a series cost?</dt><dd><b>$4,000 per event for each partner</b>, with three partners sharing each workshop in the series.</dd></div>
 <div><dt>What do you need from us?</dt><dd>See <a href="#5" data-go="5">next steps</a>.</dd></div>
 </dl></div>
 </div>
@@ -424,12 +424,9 @@ body{overflow:hidden}
 <h2 class="h rise" style="--i:1">Where we <em>go from here</em>.</h2>
 <ol class="steps rise" style="--i:2">
 <li><i>1</i><span>If you think one of these stacks is heading in the right direction, feel free to let us know.</span></li>
-<li><i>2</i><span>If you'd like to make an intro to a stack partner yourself, here is a blurb that might help.</span></li>
-<li><i>3</i><span>If none of them fit, tell us and we'll work out the stack with you.</span></li>
+<li><i>2</i><span>If none of them fit, tell us and we'll work out the stack with you.</span></li>
 </ol>
-<div class="soft c-butter blurb rise" style="--i:3"><span class="small-h">Intro blurb you can forward</span>
-<blockquote>"I'd like to introduce Adam Becker from Superoptimal. Superoptimal runs hands-on workshops for AI engineers in cities across the US, Europe and the Middle East, and we're exploring a series with them on AI evals in production. We think a collaboration with you, as one layer of the stack attendees build on, could be a great fit. It could also let the partners split the cost. If you're interested, Adam can walk you through more of the details."</blockquote></div>
-<p class="contacts rise" style="--i:4"><b>Contacts:</b> Adam Becker, <a href="mailto:adam@superoptimal.io">adam@superoptimal.io</a> &nbsp;|&nbsp; Diego Mangabeira, <a href="mailto:diego@superoptimal.io">diego@superoptimal.io</a></p>
+<p class="contacts rise" style="--i:3"><b>Contacts:</b> Adam Becker, <a href="mailto:adam@superoptimal.io">adam@superoptimal.io</a> &nbsp;|&nbsp; Diego Mangabeira, <a href="mailto:diego@superoptimal.io">diego@superoptimal.io</a></p>
 </section>
 
 </div>
@@ -453,6 +450,8 @@ body{overflow:hidden}
 <script>
 /* ---------- edit here: the three stacks from the PostHog handoff deck ----------
    The first layer is PostHog; it sits at the bottom of the stack picture. */
+/* price per event (one workshop), for each partner in a stack */
+const PRICE_PER_EVENT='$4,000';
 const STACKS=[
 {title:'Ship an AI feature and <em>measure it</em>.',label:'Stack A',
  layers:[['PostHog','Product analytics and AI observability','Traces, cost per task, evals and experiments on the live feature'],
@@ -497,7 +496,7 @@ return `<span class="label rise" style="--i:0">${st.label}: ${names}</span>
 <h2 class="h rise" style="--i:1">${st.title}</h2>
 <div class="split">
 <div class="stack-vis solo rise" style="--i:2">${svg}</div>
-<div class="layers rise" style="--i:3">${layers}<div class="soft c-butter builds"><span class="small-h">What attendees build</span><p>${st.builds}</p></div></div>
+<div class="layers rise" style="--i:3">${layers}<div class="soft c-butter builds"><span class="small-h">What attendees build</span><p>${st.builds}</p></div><p class="stack-price"><b>${PRICE_PER_EVENT} per event</b> for each partner in this stack.</p></div>
 </div>`}
 document.querySelectorAll('[data-stack]').forEach(sec=>{const s=+sec.dataset.stack;sec.innerHTML=stackSlide(STACKS[s],s)});
 
