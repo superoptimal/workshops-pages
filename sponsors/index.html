@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Sponsor the Superoptimal Workshops</title>
-<meta name="description" content="A short walkthrough for sponsors of the Superoptimal Workshops for AI Engineers: who we are, what we teach, where we go, and what a workshop series costs.">
+<title>Partner with the Superoptimal Workshops</title>
+<meta name="description" content="A short walkthrough for partners of the Superoptimal Workshops for AI Engineers: who we are, what we teach, where we go, and how partners share the cost of a series.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23A6192E%27/%3E%3Ctext x=%2732%27 y=%2748%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2746%27 fill=%27%23fff%27%3ES%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sponsor the Superoptimal Workshops">
-<meta property="og:description" content="Hands-on workshops for AI engineers, city by city. A short walkthrough for sponsors.">
+<meta property="og:title" content="Partner with the Superoptimal Workshops">
+<meta property="og:description" content="Hands-on workshops for AI engineers, city by city. A short walkthrough for partners.">
 <meta property="og:image" content="https://superoptimal.github.io/workshops-pages/ai-product-analytics-tour/og.png">
 <link rel="canonical" href="https://superoptimal.github.io/workshops-pages/sponsors/">
 <meta property="og:url" content="https://superoptimal.github.io/workshops-pages/sponsors/">
@@ -184,8 +184,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- slide 4: map (from the tour page) ---------- */
 .tourmap{border-radius:24px;padding:16px 20px 18px;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(75% 110% at 0% 0%,#CDE7F6 0%,rgba(205,231,246,0) 58%),radial-gradient(70% 100% at 100% 100%,#F6D9C9 0%,rgba(246,217,201,0) 60%),#F4EFE7}
 .tm-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.map{position:relative;margin:4px -8px 0;width:calc(100% + 16px);aspect-ratio:520/150}
-@media (min-width:901px) and (max-height:820px){.map{width:min(calc(100% + 16px),calc(36vh * 520 / 150))}}
+.map{position:relative;margin:4px -8px 0;width:calc(100% + 16px);aspect-ratio:640/200}
+@media (min-width:901px) and (max-height:820px){.map{width:min(calc(100% + 16px),calc(40vh * 640 / 200))}}
 .map svg{width:100%;height:100%;display:block;overflow:hidden}
 .map .land circle{fill:rgba(22,39,77,.13)}
 .map .route-bg{fill:none;stroke:rgba(17,17,20,.28);stroke-width:.7;stroke-dasharray:1.6 2.2}
@@ -233,21 +233,20 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ticks i{width:18px;height:4px;border-radius:2px;background:var(--line-2);transition:background .3s ease}
 .ticks i.on{background:var(--brand)}
 
-/* ---------- slide 6: pricing ---------- */
-.row-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;max-width:min(100%,64vh * 1.9)}
-.row-cards .city-card h4{font-size:17px}
-.row-cards .city-card .body{padding:9px 12px 11px}
-.more{border:1.5px dashed rgba(17,17,20,.22);border-radius:var(--r-md);display:flex;flex-direction:column;justify-content:center;gap:2px;padding:16px;color:var(--muted)}
-.more b{font-size:30px;font-weight:500;letter-spacing:-.04em;color:var(--ink);line-height:1}
-.more span{font-size:13.5px;font-weight:600}
-.prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:880px}
-.price{border-radius:var(--r-md);padding:20px 22px;background:var(--page);display:flex;flex-direction:column;gap:4px}
-.price.c-butter{background:var(--bg)}
-.price .small-h{color:var(--body)}
-.price .num{font-size:clamp(36px,4vw,56px);font-weight:500;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
-.price .num small{font-size:.36em;letter-spacing:-.02em;color:var(--muted);font-weight:600;margin-left:6px}
-.price p{color:var(--muted);font-size:14.5px}
-.price .tot{margin-top:6px;padding-top:8px;border-top:1.5px dashed color-mix(in srgb,var(--dp) 32%,transparent);font-size:13.5px;color:var(--body)}
+/* ---------- pricing model: conference vs. everywhere ---------- */
+.pm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-items:stretch}
+.conf{background:#F1EEE8;border-radius:var(--r-md);padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.conf-num{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;color:var(--muted)}
+.conf-num span{font-size:clamp(40px,4.4vw,64px);font-weight:500;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+.conf-num small{font-size:15px;font-weight:600}
+.conf-list{--dp:#8B858E;margin-top:2px}
+.pm-r{display:flex;flex-direction:column;gap:12px}
+.pm-lead{font-size:clamp(17px,1.4vw,20px);font-weight:500;letter-spacing:-.02em}
+.pm-lead b{font-weight:700;color:var(--brand)}
+.needs{display:flex;flex-direction:column;gap:10px}
+.needs li{display:flex;flex-direction:column;gap:2px;padding:14px 18px}
+.needs b{font-size:18px;font-weight:600;letter-spacing:-.025em}
+.needs span{color:var(--body);font-size:15px;line-height:1.4}
 
 /* ---------- slide 7: stack partners ---------- */
 .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center}
@@ -275,10 +274,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .play .plate{animation:plateDrop .8s cubic-bezier(.2,.9,.25,1.15) backwards;animation-delay:calc(var(--i) * 160ms + 200ms)}
 @keyframes plateDrop{from{opacity:0;transform:translateY(-46px)}}
 .calc{display:flex;flex-direction:column;gap:12px}
-.seg{display:inline-flex;align-self:flex-start;gap:4px;background:var(--page);border-radius:999px;padding:4px}
-.seg button{border:0;background:none;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14.5px;cursor:pointer;color:var(--muted);white-space:nowrap}
-.seg button:hover{color:var(--ink)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
 .each{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .each b{font-size:clamp(46px,5.2vw,76px);font-weight:500;letter-spacing:-.055em;line-height:1;font-variant-numeric:tabular-nums}
 .each span{font-size:16px;font-weight:600;color:var(--muted)}
@@ -316,12 +311,11 @@ body{overflow:hidden}
 .arrow{display:none}
 .ctrl{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(14px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(245,245,238,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mfoot{display:block;padding:18px 18px 96px;font-size:12px;color:var(--soft)}
-.cur,.split,.icp{grid-template-columns:1fr}
+.cur,.split,.icp,.pm{grid-template-columns:1fr}
 .who,.icp-side{grid-template-rows:none}
 }
 @media (max-width:1100px){
-.row-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
-.row-cards .city-card:nth-child(n+3){display:none}
+
 }
 @media (max-width:640px){
 .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -332,7 +326,6 @@ body{overflow:hidden}
 .map{margin:6px -14px 0;width:calc(100% + 28px)}
 .map .city text{display:none}
 .tourmap{padding:14px}
-.prices{grid-template-columns:1fr}
 .reel{--cw:150px;--gap:10px}
 .stack-vis{grid-template-columns:1fr;padding:10px}
 .stack-vis .city-card{display:none}
@@ -342,7 +335,6 @@ body{overflow:hidden}
 .ctrl .dots{display:none}
 .ctrl .btns{flex:1}
 .ctrl .btns .pill{flex:1}
-.seg button{padding:8px 12px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none!important;transition:none!important}
@@ -359,10 +351,10 @@ body{overflow:hidden}
 </aside>
 
 <main class="stage" id="stage">
-<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Sponsor prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 8</span></span></div></div></header>
+<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Partner prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 9</span></span></div></div></header>
 
 <div class="deck">
-<div class="card" role="region" aria-roledescription="slideshow" aria-label="Sponsor prospectus">
+<div class="card" role="region" aria-roledescription="slideshow" aria-label="Partner prospectus">
 <div class="slides" id="slides">
 
 <!-- 1. Who we are -->
@@ -403,7 +395,7 @@ body{overflow:hidden}
 <!-- 4. Curriculum -->
 <section class="slide" data-name="Curriculum" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Curriculum</span>
-<h2 class="h rise" style="--i:1">Our engineers curate and build the curriculum. <em>Sponsors can influence and co-shape the program.</em></h2>
+<h2 class="h rise" style="--i:1">Our engineers curate and build the curriculum. <em>Partners can influence and co-shape the program.</em></h2>
 <div class="cur">
 <div class="agenda rise" style="--i:2">
 <span class="small-h">A workshop evening</span>
@@ -411,7 +403,7 @@ body{overflow:hidden}
 </div>
 <div class="who">
 <div class="soft c-sky rise" style="--i:3"><h3>Our engineers</h3><ul class="bubbles"><li>Pick the problems worth teaching</li><li>Build and test every exercise</li><li>Teach the room, laptops open</li></ul></div>
-<div class="soft c-butter rise" style="--i:4"><h3>Sponsors</h3><ul class="bubbles"><li>Suggest the use cases attendees build</li><li>Bring your tool into a hands-on session</li><li>Review the program before the tour starts</li></ul></div>
+<div class="soft c-butter rise" style="--i:4"><h3>Partners</h3><ul class="bubbles"><li>Suggest the use cases attendees build</li><li>Bring your tool into a hands-on session</li><li>Review the program before the tour starts</li></ul></div>
 </div>
 </div>
 </section>
@@ -422,7 +414,7 @@ body{overflow:hidden}
 <h2 class="h rise" style="--i:1">Cities <em>we frequent</em>.</h2>
 <div class="tourmap rise" style="--i:2">
 <div class="tm-top"><span class="chip"><i></i>On tour</span><span class="chip glass"><span><span id="ncity"></span> cities</span></span></div>
-<div class="map"><svg id="map" viewBox="160 92 520 150" role="img" aria-label="Animated route through the cities we frequent"></svg></div>
+<div class="map"><svg id="map" viewBox="160 92 640 200" role="img" aria-label="Animated route through the cities we frequent"></svg></div>
 <ul class="stops" id="stops"></ul>
 </div>
 <p class="proof rise" style="--i:3">Close to 600 engineers registered for our rooms this fall in Chicago, Seattle, Barcelona and San Francisco.</p>
@@ -436,30 +428,39 @@ body{overflow:hidden}
 <div class="reel-foot rise" style="--i:3"><div class="ticks" id="ticks" aria-hidden="true"></div><span class="small-h">One topic, taught city by city.</span></div>
 </section>
 
-<!-- 6. Pricing -->
-<section class="slide" data-name="Pricing" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Pricing</span>
-<h2 class="h rise" style="--i:1">A series costs less <em>per workshop</em>.</h2>
-<div class="row-cards rise" style="--i:2" id="row-cards"></div>
-<div class="prices">
-<div class="price rise" style="--i:3"><span class="small-h">Each workshop</span><div class="num" data-price="single"></div><p>One city, one evening.</p></div>
-<div class="price c-butter rise" style="--i:4"><span class="small-h">The entire series</span><div class="num"><span data-price="seriesPerWorkshop"></span><small>per workshop</small></div><p>Series of <span data-price="seriesLength"></span> workshops.</p><div class="tot"><span data-price="seriesTotal"></span> for the full series</div></div>
+<!-- 7. Pricing model -->
+<section class="slide" data-name="Pricing model" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">Pricing model</span>
+<h2 class="h rise" style="--i:1">Conferences are expensive, <em>and they happen once, in one place.</em></h2>
+<div class="pm">
+<div class="conf rise" style="--i:2">
+<span class="small-h">The usual alternative: a conference</span>
+<div class="conf-num"><span data-price="conferenceBooth"></span><small>for a sponsor booth</small></div>
+<ul class="bubbles conf-list"><li>Then you fly and house the team that staffs it</li><li>One day, in one city</li><li>Being in a few places means many hundreds of thousands of dollars</li></ul>
+</div>
+<div class="pm-r">
+<p class="pm-lead rise" style="--i:3">We want our partners to be <b>everywhere</b>. That only works if it is:</p>
+<ol class="needs">
+<li class="soft c-butter rise" style="--i:4"><b>Affordable</b><span>Partners in the same stack share the cost of one series.</span></li>
+<li class="soft c-sky rise" style="--i:5"><b>In every city</b><span>One series of workshops, taught city by city around the world.</span></li>
+<li class="soft c-aqua rise" style="--i:6"><b>Easy on your team</b><span>Our engineers build and teach the program. Your team reviews it and joins when it wants to.</span></li>
+</ol>
+</div>
 </div>
 </section>
 
 <!-- 7. Stack partners -->
 <section class="slide" data-name="Stack partners" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Stack partners</span>
+<span class="label rise" style="--i:0">Pricing</span>
 <h2 class="h rise" style="--i:1">Split the cost with <em>a stack partner</em>.</h2>
 <div class="split">
 <div class="stack-vis rise" style="--i:2" id="stack-vis"></div>
 <div class="calc rise" style="--i:3">
-<span class="small-h" id="seg-l">Sponsors sharing the series</span>
-<div class="seg" id="seg" role="group" aria-labelledby="seg-l"><button type="button" data-n="1" aria-pressed="false">1 sponsor</button><button type="button" data-n="2" aria-pressed="false">2 sponsors</button><button type="button" data-n="3" aria-pressed="true">3 sponsors</button></div>
-<div class="each" aria-live="polite"><b id="each">$40,000</b><span>each, for the full series</span></div>
-<p class="line" id="each-line"></p>
-<p class="fine" id="each-fine"></p>
+<span class="small-h">With three partners sharing the series</span>
+<div class="each"><b id="each" data-price="perWorkshopEach"></b><span>per workshop, for each partner</span></div>
+<p class="line">Three tools that fit the same build share every workshop in the series.</p>
 <p class="fine">A stack is a few tools that fit in the same build, for example analytics, a database and inference. Any mix works. If you have no partners in mind, we will work out a stack with you.</p>
+<p class="fine">Prefer to be the only partner? That works too. Diego will walk you through it.</p>
 </div>
 </div>
 </section>
@@ -468,7 +469,7 @@ body{overflow:hidden}
 <section class="slide cta" data-name="Speak with us" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Next step</span>
 <h2 class="h rise" style="--i:1">Speak <em>with us</em>.</h2>
-<p class="lead rise" style="--i:2">Diego runs sponsorships for The Superoptimal. Book a time with him to pick a topic, the cities and a stack.</p>
+<p class="lead rise" style="--i:2">Diego runs partnerships for The Superoptimal. Book a time with him to pick a topic, the cities and a stack.</p>
 <a class="pill dark lg rise" style="--i:3" data-book href="#" target="_blank" rel="noopener">Book a time with Diego <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <div class="recap rise" style="--i:4" id="recap"></div>
 </section>
@@ -496,9 +497,10 @@ body{overflow:hidden}
 
 <script>
 /* ---------- edit here: prices and the booking link ----------
-   Pricing from the Oct 28 call and the Miro wireframe. Confirm with Adam before the link goes out. */
-const PRICING={single:20000,seriesPerWorkshop:12000,seriesLength:10,maxSponsors:3};
-PRICING.seriesTotal=PRICING.seriesPerWorkshop*PRICING.seriesLength;
+   Nov 3 call with Adam: lead with the conference comparison, then show only the
+   three-partner price per workshop. Do not show single-workshop or full-series totals. */
+const PRICING={seriesPerWorkshop:12000,partners:3,conferenceBooth:150000};
+PRICING.perWorkshopEach=PRICING.seriesPerWorkshop/PRICING.partners;
 /* Diego's booking page, the same link the tour pages use for "Sponsors: book a call" */
 const BOOKING_URL='https://superoptimal.pipedrive.com/scheduler/4X9vk7CE/meeting-diego-mangabeira-superoptimal';
 
@@ -514,10 +516,12 @@ par:{n:'Paris',region:'France',img:'photo-1626985249964-4fa612df0274'},
 ber:{n:'Berlin',region:'Germany',img:'photo-1560930950-5cc20e80e392'},
 bcn:{n:'Barcelona',region:'Spain',img:'photo-1650964827770-421afa7960ac'},
 tlv:{n:'Tel Aviv',region:'Israel',img:'photo-1500990702037-7620ccb6a60a'},
-dxb:{n:'Dubai',region:'United Arab Emirates',img:'photo-1623638498061-2fcab5587cb0'},
+ams:{n:'Amsterdam',region:'Netherlands',img:'photo-1534351590666-13e3e96b5017'},
+blr:{n:'Bangalore',region:'India'},
+sin:{n:'Singapore',region:'Singapore'},
 };
-const ROUTE=['sea','sf','aus','chi','nyc','lon','par','ber','bcn','tlv','dxb'];
-const SERIES=['sf','chi','sea','aus','nyc','lon','par','ber','bcn','tlv'];
+const ROUTE=['sea','sf','aus','chi','nyc','lon','ams','ber','par','bcn','tlv','blr','sin'];
+const SERIES=['sf','chi','sea','aus','nyc','lon','ams','par','ber','bcn'];
 /* Audience slide. Fill AUDIENCE_MIX with real registration data (for example from Luma exports)
    and a "Room mix" bar chart appears on the slide, e.g. {role:'AI and ML engineers',pct:45}.
    Left empty on purpose until we have real numbers. */
@@ -527,11 +531,11 @@ const AGENDA=[
 ['5:30 PM','Doors open','Food, drinks and laptop setup'],
 ['6:00 PM','Opening talk','The problem, and why it matters in production'],
 ['6:50 PM','Session 1','Core concepts, hands-on'],
-['7:30 PM','Session 2','Build it with a sponsor tool',1],
+['7:30 PM','Session 2','Build it with a partner tool',1],
 ['8:10 PM','Session 3','Measure it on realistic traffic',1],
 ['8:50 PM','Wrap','Questions, then food and drinks'],
 ];
-const MAP=(()=>{const M={"g":[110,50,4,63,154],"b":"AAAAAAAgFL7///8BABcAAAAAAgAAAAAAUsgU/P//AwAAAAAMAPgDAAAAAMCAfgD8/w8AAAAABgD/DwAAAABcYOsB8P8PAAAAAAwA/z8AAAAA2B/lH8D/fwAAAAAwsP//BQD/AQT/HP+B//8AAMAHAMD///MB////T+COB/j/AACA/wPy7f/fD/7/////Hz74PwAAgP8f/v//P3v+/////x+4wB/gAwC/n/////8B4P/////v8IA/AAcAfn//////A/D/////DwEFeAAAAP78/////x/w/////w/gAPAAAAD8+f////8/oH/4//8fgAcAAAAA4A/8/////wEYwP//f4DfAAAAAIIc/v////8DUAD8//8B/AcAAAAYaPT/////HwgA8P//P/gfAAAAMNDw/////z8EAMD////z/wEAAGCD+P//////AQAA////7/8HAADAzv///////wMAAPj//7//HwAAAHn///////8fAADo/////y8AAAAw////////PwAAgP////+RAwAAAP7///////8BAAD9////DQ8AAAD+////////AwAA+P///38AAAAA4P//78///x8AAPD/////AwAAAIB///uP//8/AADA/////wIAAAAAfvMPfP7//wEAwP////8AAAAAwB+MH+Dx//8DAAD+////AwAAAAD/wPwcH///HwAA/P///wEAAAAA/CBy/3/+/z8AAPD///8HAAAAAPADkPn/8f//AQDA////DwAAAADABxji/8f//wMAAP///z8AAAAAAMQfAOz///8fAAD8//9/AAAAAAD4P4CQ////PwAAwP//fwAAAAAA4P8BAP7///8BAAD///8AAAAAAMD/HwL8////AwAA9P//AQAAAAAA///49v///x8AAND/HwcAAAAAAP7///9///8/AACA/g8QAAAAAAD4//9///v//wEAAPsPYAAAAAAA+P////nP//8DAADQPwABAAAAAOD////Pf/D/HwAAIH8AAAAAAADA////P/8T8D8AAAD4AUAAAAAAgP/////7/4D/AQAA4ANgAAAAAAD+////7/8H/AMAAAAfDAQAAAAA+P///3//H+AfAAAAfhgwAAAAAOD/////+D8APwAAAPBzAAwAAACA/////8f/APgBAAAA/wAAAAAAAP7///8f/wHgAwAAAPADAAAAAAD4//////gBgB8AAAAAfgAAAAAA8P/////3AQAcAAAAAOADAAAAAID/////vwMA8AAAAAAABgAAAAAA//////8BAMADAAAAABDQAAAAAPD/////xwEADgAAAABA8D8AAADA//////8DABgAAAAAAO7/AQAAAP7/////DwBAAQAAAACA/w8AAAD4/////x8AAAAAAAAAAP5/AAAAgH/+//9/AAAAAAAAAAD4/w8AAAAG+P///wAAAAAAAAAA4P9/AAAAAAD///8DAAAAAAAAAMD//wEAAAAA/P//BwAAAAAAAAAA//8PAAAAAPD//w8AAAAAAAAAAP7/PwAAAADA//8PAAAAAAAAAAD4//8HAAAAAP//PwAAAAAAAAAA4P//fwAAAAD8/38AAAAAAAAAAID///8PAAAAwP//AQAAAA==","cities":{"nyc":[314.8,156.3],"sf":[189.7,165.6],"sea":[204.2,134.9],"chi":[281.8,152.7],"aus":[245.5,189.4],"lon":[499.7,123],"par":[505.6,131],"ber":[531.5,119.9],"bcn":[505.4,154.2],"tlv":[590,183.6],"dxb":[646,205.4],"bos":[323.5,151.2],"ams":[510.2,117.5]}};const [X0,Y0,S,R,C]=M.g;const b=atob(M.b);const dots=[];for(let r=0;r<R;r++)for(let c=0;c<C;c++){const k=r*C+c;if(b.charCodeAt(k>>3)>>(k&7)&1)dots.push(X0+(r%2?S/2:0)+c*S,Y0+r*S)}return {dots,cities:M.cities}})();
+const MAP=(()=>{const M={"g":[110,50,4,63,172],"b":"AAAAAAAgFL7///8BABcAAAAAgv//DwAAAABIIVPw//8PAAAAADAA4P///wAAAAAADOgHwP//AAAAAGAA8P///w8AAAAAF9h6APz/AwAAAAADwP////8AAAAA2B/lH8D/fwAAAAAwsP////8fAPwHEPxz/Af+/wMAAB8AAP//////H/D///8E7niA/w8AAPg/IN/+/////4P//////4cP/g8AAOD/h////////3v+/////x+4wB/gAwC/n////////w+A/////7/DA/4AHAD4/f3///////8A//////8QUIAHAADgz/////////8P/P////8DOAA8AAAAf/7/////////oH/4//8fgAcAAAAA4A/8////////D2AA////AX4DAAAACHL4/////////wAFwP//H8B/AAAAgIFG/////////w8CAPz//w/+BwAAAAw0/P////////8EAMD////z/wEAAGCD+P////////8PAAD8//+//x8AAAA7////////////AACA////+/8BAACQ9///////////DwAA+v////8LAAAAzP///////////wAAgP////+RAwAAAP7//////////w8AAPT///83PAAAAPj///////////8AAID/////BwAAAAD+///+/P////8PAAD8/////wAAAADg3//+4///////AADA/////wIAAAAAfvMPfP7/////DwAA/////wMAAAAAfzB+gMf//////wAA4P///z8AAAAA8A/Mz/Hx/////w8AAP///38AAAAAAD+I3P+f//////8AAPD///8HAAAAAPADkPn/8f////8PAAD///8/AAAAAAAfYIj/H///////AADw////AwAAAABA/AHA/v//////DwAA////HwAAAAAA/g8g5P///////wAAwP//fwAAAAAA4P8BAP7//////w8AAPz//wMAAAAAAP9/CPD///////8AAED//x8AAAAAAPD/j2////////8PAAD0/8cBAAAAAID/////3///////AACA/g8QAAAAAAD4//9///v/////DwAA7D+AAQAAAADg////5z///////wAAAP0DEAAAAAAA/v////wH/////w8AAMgfAAAAAAAA8P///8//BPz///8AAAD4AUAAAAAAgP/////7/4D///8PAACAD4ABAAAAAPj///+//x/w//3/AAAA8MFAAAAAAID/////9/8B/of/BQAAgB8GDAAAAAD4////P/4PwD/4ZwAAAPBzAAwAAACA/////8f/APgD/wQAAAD8AwAAAAAA+P///3/8B4AP8A8AAAAAPwAAAAAAgP////+PHwD4Af0BAAAAgB8AAAAAAPz/////fQAAB8AfAAAAAOADAAAAAID/////vwMA8AD4AwAAAAAYAAAAAAD8/////wcAAA9AHgAAAAAAAQ0AAAAA/////38cAOAAwAEAAAAAEPwPAAAA8P//////AAAGQAwAAAAAAO7/AQAAAP7/////DwBAAQgAAAAAAAD+PwAAAOD/////fwAAAIAAAAAAAADg/wcAAAD45////wcAAAAwAAAAAAAA/v8DAACAAf7//z8AAAAgAwAAAAAA4P9/AAAAAAD///8DAAAANAAAAAAAAP//BwAAAADw//8fAAAAwMIAAAAAAPD//wAAAAAA////AAAAABgMAAAAAID//w8AAAAA8P//AwAAAIDBAAAAAAD4//8HAAAAAP//PwAAAABwDAAAAACA////AQAAAPD//wEAAAAAhwAAAAAA+P///wAAAAD8/x8AAAAAwAA=","cities":{"nyc":[314.8,156.3],"sf":[189.7,165.6],"sea":[204.2,134.9],"chi":[281.8,152.7],"aus":[245.5,189.4],"lon":[499.7,123],"par":[505.6,131],"ber":[531.5,119.9],"bcn":[505.4,154.2],"tlv":[590,183.6],"bos":[323.5,151.2],"ams":[510.2,117.5],"blr":[704.5,243.6],"sin":[773.5,280.0]}};const [X0,Y0,S,R,C]=M.g;const b=atob(M.b);const dots=[];for(let r=0;r<R;r++)for(let c=0;c<C;c++){const k=r*C+c;if(b.charCodeAt(k>>3)>>(k&7)&1)dots.push(X0+(r%2?S/2:0)+c*S,Y0+r*S)}return {dots,cities:M.cities}})();
 
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $=s=>document.querySelector(s);
@@ -547,15 +551,14 @@ function clearTimers(){T.forEach(clearTimeout);T=[]}
 
 /* ---------- static content ---------- */
 document.querySelectorAll('[data-book]').forEach(a=>a.href=BOOKING_URL);
-document.querySelectorAll('[data-price]').forEach(e=>{const k=e.dataset.price;e.textContent=k==='seriesLength'?PRICING[k]:money(PRICING[k])});
-$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`${ROUTE.length} cities`,`${money(PRICING.single)} per workshop`,`${money(PRICING.seriesPerWorkshop)} per workshop in a series of ${PRICING.seriesLength}`,`Split with stack partners`].map(t=>`<span>${t}</span>`).join('');
-$('#agenda').innerHTML=AGENDA.map(([t,h,d,co])=>`<li${co?' class="co"':''}><time>${t}</time><div><b>${h}</b><span>${d}</span>${co?'<span class="co-tag">Co-designed with sponsor</span>':''}</div></li>`).join('');
+document.querySelectorAll('[data-price]').forEach(e=>e.textContent=money(PRICING[e.dataset.price]));
+$('#recap').innerHTML=[`${TOPICS.length} workshop topics`,`${ROUTE.length} cities`,`A series, city by city`,`${money(PRICING.perWorkshopEach)} per workshop with ${PRICING.partners} partners`].map(t=>`<span>${t}</span>`).join('');
+$('#agenda').innerHTML=AGENDA.map(([t,h,d,co])=>`<li${co?' class="co"':''}><time>${t}</time><div><b>${h}</b><span>${d}</span>${co?'<span class="co-tag">Co-designed with partner</span>':''}</div></li>`).join('');
 $('#titles').innerHTML=AUDIENCE_TITLES.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('');
 if(AUDIENCE_MIX.length){const m=$('#mix');m.hidden=false;m.innerHTML='<span class="small-h">Room mix</span>'+AUDIENCE_MIX.map(r=>`<div class="mix-row"><span>${r.role}</span><span class="mix-bar"><i data-pct="${r.pct}"></i></span><b>${r.pct}%</b></div>`).join('')}
 function playMix(){const bars=[...document.querySelectorAll('.mix-bar i')];bars.forEach(b=>b.style.width='0');if(!bars.length)return;later(()=>bars.forEach(b=>b.style.width=b.dataset.pct+'%'),RM?0:500)}
 const PAL=['c-butter','c-blush','c-sky','c-lilac','c-aqua'];
 $('#topics').innerHTML=TOPICS.map((t,i)=>`<li class="tp ${PAL[i%PAL.length]}">${t}</li>`).join('');
-$('#row-cards').innerHTML=SERIES.slice(0,4).map(cityCard).join('')+`<div class="more"><b>+${PRICING.seriesLength-4}</b><span>more cities in the series</span></div>`;
 
 /* ---------- 1. rotating logo grid ---------- */
 const LOGOS=[...$('#logo-set').content.children];
@@ -588,7 +591,7 @@ let land='';for(let i=0;i<dots.length;i+=2)land+=`<circle cx="${dots[i]}" cy="${
 const pts=ROUTE.map(k=>MAP.cities[k]);
 let pathD=`M${pts[0][0]} ${pts[0][1]}`;const segD=[];
 for(let i=1;i<pts.length;i++){const [x1,y1]=pts[i-1],[x2,y2]=pts[i];const lift=Math.min(34,Math.hypot(x2-x1,y2-y1)*.3);pathD+=` Q${((x1+x2)/2).toFixed(1)} ${((y1+y2)/2-lift).toFixed(1)} ${x2} ${y2}`;segD.push(pathD)}
-const LBL={sf:[0,9,'middle'],chi:[0,-5,'middle'],sea:[-5,-3,'end'],aus:[0,9,'middle'],lon:[-5,-3,'end'],par:[-5,6,'end'],ber:[5,-2,'start'],bcn:[0,9,'middle'],tlv:[-5,8,'end'],dxb:[5,3,'start'],nyc:[4,8,'start']};
+const LBL={sf:[0,9,'middle'],chi:[0,-5,'middle'],sea:[-5,-3,'end'],aus:[0,9,'middle'],lon:[-5,-3,'end'],par:[-5,6,'end'],ber:[5,-2,'start'],bcn:[0,9,'middle'],tlv:[-5,8,'end'],nyc:[4,8,'start'],ams:[0,-5,'middle'],blr:[5,3,'start'],sin:[-5,3,'end']};
 svg.innerHTML=`<g class="land">${land}</g><path class="route-bg" d="${pathD}"/><path class="route-done" id="rdone" d="${pathD}"/>`+ROUTE.map((k,i)=>{const [x,y]=pts[i],[dx,dy,a]=LBL[k];return `<g class="city"><circle class="halo" cx="${x}" cy="${y}" r="2.4"/><circle class="c" cx="${x}" cy="${y}" r="2.4"/><text x="${x+dx}" y="${y+dy}" text-anchor="${a}">${CITIES[k].n}</text></g>`}).join('')+`<circle class="plane" id="plane" r="2.6"/>`;
 const rdone=$('#rdone'),plane=$('#plane'),L=rdone.getTotalLength();
 const tmp=document.createElementNS(NS,'path');svg.appendChild(tmp);const at=[0,...segD.map(s=>{tmp.setAttribute('d',s);return tmp.getTotalLength()})];tmp.remove();
@@ -635,24 +638,16 @@ const right=`M${cx} ${y+hh} L${cx+hw} ${y} L${cx+hw} ${y+th} L${cx} ${y+hh+th} Z
 const rim=`M${cx-hw} ${y} L${cx} ${y+hh} L${cx+hw} ${y}`;
 return `<g class="plate" data-k="${i}" style="--i:${i}"><path class="l" d="${left}" fill="${p.l}"/><path class="r" d="${right}" fill="${p.r}"/><path class="t" d="${top}" fill="url(#pg${i})"/><path class="rim" d="${rim}"/><text class="${p.you?'you':''}" x="${cx}" y="${y-2}" text-anchor="middle">${p.who}</text><text class="sub" x="${cx}" y="${y+13}" text-anchor="middle">${p.eg}</text></g>`}
 const plateDefs=PLATES.map((p,i)=>`<linearGradient id="pg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p.g[0]}"/><stop offset="1" stop-color="${p.g[1]}"/></linearGradient>`).join('')+`<radialGradient id="stack-shadow"><stop offset="0" stop-color="rgba(22,39,77,.22)"/><stop offset="1" stop-color="rgba(22,39,77,0)"/></radialGradient>`;
-$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 296" role="img" aria-label="A stack of three sponsor tools"><defs>${plateDefs}</defs><ellipse class="stack-shadow" cx="170" cy="284" rx="132" ry="22"/><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
+$('#stack-vis').innerHTML=cityCard('sf',0)+`<svg class="stack-svg" viewBox="50 10 240 296" role="img" aria-label="A stack of three partner tools"><defs>${plateDefs}</defs><ellipse class="stack-shadow" cx="170" cy="284" rx="132" ry="22"/><g id="plates">${PLATES.map(plateSVG).join('')}</g></svg>`+cityCard('bcn',1);
 const plateEls=[...document.querySelectorAll('.plate')];
-let sponsors=PRICING.maxSponsors,shownEach=PRICING.seriesTotal/sponsors,countRaf=0;
+let shownEach=PRICING.perWorkshopEach,countRaf=0;
 function animateEach(to){cancelAnimationFrame(countRaf);const from=shownEach,t0=performance.now(),dur=RM?0:650;
 const step=now=>{const k=dur?Math.min(1,(now-t0)/dur):1;shownEach=from+(to-from)*(1-Math.pow(1-k,3));$('#each').textContent=money(shownEach);if(k<1)countRaf=requestAnimationFrame(step)};countRaf=requestAnimationFrame(step)}
-function setSponsors(n){sponsors=n;
-document.querySelectorAll('#seg button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.n===n)));
-plateEls.forEach((p,i)=>p.classList.toggle('off',i>=n));
-const each=PRICING.seriesTotal/n,s=PRICING.seriesTotal;
-$('#each-line').textContent=n===1?`On your own, the full series is ${money(s)}.`:n===2?`Bring one partner and the full series is ${money(each)} each.`:`Get two more partners and the full series is ${money(each)} each.`;
-$('#each-fine').textContent=`That is ${money(PRICING.seriesPerWorkshop/n)} per workshop for each sponsor, across ${PRICING.seriesLength} workshops.`;
-animateEach(each)}
-$('#seg').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(b)setSponsors(+b.dataset.n)});
-setSponsors(sponsors);
+function playStack(){if(RM)return;shownEach=0;$('#each').textContent=money(0);later(()=>animateEach(PRICING.perWorkshopEach),700)}
 
 /* ---------- slideshow ---------- */
 const slides=[...document.querySelectorAll('.slide')];const N=slides.length;
-const ENTER={'Who we are':rotateLogos,'Topics':playTopics,"Who's in the room":playMix,'Cities':playMap,'A series':playReel};
+const ENTER={'Who we are':rotateLogos,'Topics':playTopics,"Who's in the room":playMix,'Cities':playMap,'A series':playReel,'Stack partners':playStack};
 $('#bars').innerHTML=slides.map((s,i)=>`<a class="bar" href="#${i+1}" data-go="${i+1}"><i>${String(i+1).padStart(2,'0')}</i><span>${s.dataset.name}</span></a>`).join('');
 const bars=[...document.querySelectorAll('.bar')];
 $('#dots').innerHTML=slides.map((s,i)=>`<button class="dot" type="button" data-go="${i+1}" aria-label="Slide ${i+1}: ${s.dataset.name}"></button>`).join('');
@@ -679,7 +674,6 @@ $('#status').textContent=`Slide ${n} of ${N}: ${s.dataset.name}`;
 box.scrollTop=0;if(cur&&cur!==n)window.scrollTo(0,0);
 cur=n;
 const hook=ENTER[s.dataset.name];if(hook)hook();
-if(s.dataset.name==='Stack partners'&&!RM)setSponsors(sponsors);
 if(hist!=='none'){try{history[hist==='push'?'pushState':'replaceState'](null,'','#'+n)}catch(e){}}
 }
 $('#prev').onclick=$('#arrow-prev').onclick=()=>go(cur-1);
@@ -696,7 +690,7 @@ box.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,
 const fromHash=()=>parseInt((location.hash||'').slice(1),10)||1;
 window.addEventListener('popstate',()=>go(fromHash(),'none'));
 window.addEventListener('hashchange',()=>{if(fromHash()!==cur)go(fromHash(),'none')});
-addEventListener('resize',()=>{if(cur===5)setReel(reelI%SERIES.length,false)});
+addEventListener('resize',()=>{if(slides[cur-1]?.dataset.name==='A series')setReel(reelI%SERIES.length,false)});
 go(fromHash(),'replace');
 </script>
 </body>
