@@ -350,6 +350,8 @@ body{overflow:hidden}
 }
 /* ---------- PostHog handoff ---------- */
 .stack-vis.solo{grid-template-columns:1fr;padding:18px 24px}
+.stack-left{display:flex;flex-direction:column;gap:16px;min-width:0}
+.stack-left .stack-svg{max-height:36vh}
 .qa{display:flex;flex-direction:column}
 .qa div{padding:10px 0;border-top:1.5px dashed color-mix(in srgb,var(--dp) 32%,transparent)}
 .qa div:first-child{border-top:0;padding-top:4px}
@@ -365,8 +367,11 @@ body{overflow:hidden}
 .layer p{font-size:14.5px;color:var(--body);line-height:1.4}
 .builds{margin-top:4px}
 .builds p{font-size:15px;color:var(--body);line-height:1.45;margin-top:4px}
-.stack-price{font-size:clamp(16px,1.25vw,18px);font-weight:500;letter-spacing:-.015em;color:var(--ink)}
-.stack-price b{color:var(--brand);font-weight:700;font-variant-numeric:tabular-nums}
+/* price block, matching the partner prospectus */
+.stack-price{display:flex;flex-direction:column;gap:6px;padding-left:4px}
+.stack-price .each{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.stack-price .each b{font-size:clamp(40px,4vw,60px);font-weight:500;letter-spacing:-.055em;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+.stack-price .each span{font-size:16px;font-weight:600;color:var(--muted)}
 .steps{display:flex;flex-direction:column;gap:10px;max-width:46em}
 .steps li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;font-size:clamp(16px,1.25vw,18px);color:var(--body);line-height:1.45}
 .steps li i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center}
@@ -495,8 +500,8 @@ const layers=st.layers.map((l,i)=>`<div class="layer${i?'':' you'}"><div class="
 return `<span class="label rise" style="--i:0">${st.label}: ${names}</span>
 <h2 class="h rise" style="--i:1">${st.title}</h2>
 <div class="split">
-<div class="stack-vis solo rise" style="--i:2">${svg}</div>
-<div class="layers rise" style="--i:3">${layers}<div class="soft c-butter builds"><span class="small-h">What attendees build</span><p>${st.builds}</p></div><p class="stack-price"><b>${PRICE_PER_EVENT} per event</b> for each partner in this stack.</p></div>
+<div class="stack-left rise" style="--i:2"><div class="stack-vis solo">${svg}</div><div class="stack-price"><span class="small-h">Three partners share each event</span><div class="each"><b>${PRICE_PER_EVENT}</b><span>per event, for each partner</span></div></div></div>
+<div class="layers rise" style="--i:3">${layers}<div class="soft c-butter builds"><span class="small-h">What attendees build</span><p>${st.builds}</p></div></div>
 </div>`}
 document.querySelectorAll('[data-stack]').forEach(sec=>{const s=+sec.dataset.stack;sec.innerHTML=stackSlide(STACKS[s],s)});
 
