@@ -328,6 +328,31 @@ body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){
 *,*::before,*::after{animation:none!important;transition:none!important}
 }
+/* ---------- partner slides: value, deliverables, process ---------- */
+.val{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.2vw,16px)}
+.val li{display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2.4vw,32px);min-height:clamp(220px,40vh,360px)}
+.val .big{font-family:var(--f-serif);font-weight:400;font-size:clamp(46px,min(5vw,8.5vh),84px);line-height:.9;letter-spacing:-.02em;color:var(--dp)}
+.val .big.word{font-size:clamp(34px,min(3.4vw,6vh),56px)}
+.val b{font-size:clamp(20px,min(1.8vw,3.4vh),28px);line-height:1.15;font-weight:600;letter-spacing:-.03em;margin-top:auto}
+.val .d{color:var(--body);font-size:clamp(15px,1.1vw,17px);line-height:1.45}
+.proc{display:grid;grid-template-columns:8.5em repeat(5,minmax(0,1fr));gap:10px;align-items:stretch}
+.proc .lane{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
+.proc .step{position:relative;background:var(--bg);border-radius:var(--r-md);padding:14px 16px;display:flex;flex-direction:column;gap:8px;--dp:#0F8F7A;--bg:#DDF6F0}
+.proc .step i{font-style:normal;font-family:var(--f-serif);font-size:34px;line-height:.9;color:var(--dp)}
+.proc .step b{font-size:15px;line-height:1.3;font-weight:600;letter-spacing:-.01em}
+.proc .step:not(:nth-child(6))::after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:8px;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:translateY(-50%) rotate(45deg);z-index:1}
+.proc .cell{border-radius:var(--r-md);padding:12px 14px;font-size:14px;line-height:1.4;color:var(--body)}
+.proc .cell.us{background:#EDEDEA}
+.proc .cell.you{background:#FDE3E1}
+.proc .cell:empty{background:transparent;border:1.5px dashed rgba(17,17,20,.1)}
+.inv-card .per{font-size:15px;color:var(--body)}
+.inv-card .per b{font-weight:600;color:var(--ink)}
+@media (max-width:900px){
+.val{grid-template-columns:1fr}
+.proc{grid-template-columns:1fr}
+.proc .lane,.proc .cell:empty{display:none}
+.proc .step::after{display:none}
+}
 </style>
 </head>
 <body>
@@ -340,7 +365,7 @@ body{overflow:hidden}
 </aside>
 
 <main class="stage" id="stage">
-<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Partner prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 9</span></span></div></div></header>
+<header class="topbar"><div class="tb-card"><p class="tb-l"><em>Superoptimal</em> Workshops <span>for AI Engineers</span></p><div class="tb-r"><span class="chip glass">Partner prospectus</span><span class="chip"><i></i><span class="count" id="tb-count">1 / 10</span></span></div></div></header>
 
 <div class="deck">
 <div class="card" role="region" aria-roledescription="slideshow" aria-label="Partner prospectus">
@@ -389,23 +414,7 @@ body{overflow:hidden}
 <div class="topics-wrap"><ul class="topics" id="topics" aria-label="Workshop titles"></ul></div>
 </section>
 
-<!-- 5. Curriculum -->
-<section class="slide" data-name="Curriculum" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Curriculum</span>
-<h2 class="h rise" style="--i:1">Our engineers curate and build the curriculum. <em>Partners can influence and co-shape the program.</em></h2>
-<div class="cur">
-<div class="agenda rise" style="--i:2">
-<span class="small-h">A workshop evening</span>
-<ol class="tl" id="agenda"></ol>
-</div>
-<div class="who">
-<div class="soft c-sky rise" style="--i:3"><h3>Our engineers</h3><ul class="bubbles"><li>Pick the problems worth teaching</li><li>Build and test every exercise</li><li>Teach the room, laptops open</li></ul></div>
-<div class="soft c-butter rise" style="--i:4"><h3>Partners</h3><ul class="bubbles"><li>Suggest the use cases attendees build</li><li>Bring your tool into a hands-on session</li><li>Review the program before the tour starts</li></ul></div>
-</div>
-</div>
-</section>
-
-<!-- 6. Cities -->
+<!-- 5. Cities -->
 <section class="slide" data-name="Cities" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Cities</span>
 <h2 class="h rise" style="--i:1">Cities <em>we frequent</em>.</h2>
@@ -417,20 +426,62 @@ body{overflow:hidden}
 <p class="proof rise" style="--i:3">Close to 600 engineers registered for our rooms this fall in Chicago, Seattle, Barcelona and San Francisco.</p>
 </section>
 
-<!-- 7. Engagement model -->
-<section class="slide" data-name="Engagement model" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Engagement model</span>
-<h2 class="h pm-h rise" style="--i:1">Three principles. <em>One way to be everywhere.</em></h2>
-<ol class="needs">
-<li class="soft c-butter rise" style="--i:2"><span class="pr"><i>1</i>Principle</span><b>How do we make it affordable?</b><span class="d">Commit to the series and each activation costs less than half a single workshop.</span></li>
-<li class="soft c-sky rise" style="--i:3"><span class="pr"><i>2</i>Principle</span><b>How do we put you everywhere?</b><span class="d">One series, taught city by city around the world.</span></li>
-<li class="soft c-aqua rise" style="--i:4"><span class="pr"><i>3</i>Principle</span><b>How do we make it easy for you?</b><span class="d">Our engineers build and teach the program. Your team reviews it and joins when it wants to.</span></li>
+<!-- 6. Partners: value -->
+<section class="slide" data-name="Value" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">For partners: value</span>
+<h2 class="h pm-h rise" style="--i:1">What a series <em>gives your brand</em>.</h2>
+<ol class="val">
+<li class="soft c-butter rise" style="--i:2"><span class="big word">Always current</span><b>Always-current curriculum design</b><span class="d">Our engineers keep the program up to date with the newest tools, so your product is taught the way engineers use it today.</span></li>
+<li class="soft c-sky rise" style="--i:3"><span class="big">1,000</span><b>Practitioners playing with your product</b><span class="d">Engineers build with your product, hands-on, on their own laptops.</span></li>
+<li class="soft c-aqua rise" style="--i:4"><span class="big">5,000</span><b>Deep engagements with your brand</b><span class="d">In-person workshops and live webinars put your brand in front of a technical audience, city by city.</span></li>
 </ol>
 </section>
 
-<!-- 8. Investment -->
-<section class="slide" data-name="Investment" aria-roledescription="slide" hidden>
-<span class="label rise" style="--i:0">Investment</span>
+<!-- 7. Partners: deliverables -->
+<section class="slide" data-name="Deliverables" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">For partners: deliverables</span>
+<h2 class="h rise" style="--i:1">What you get <em>in every series</em>.</h2>
+<div class="cur">
+<div class="agenda rise" style="--i:2">
+<span class="small-h">A workshop evening</span>
+<ol class="tl" id="agenda"></ol>
+</div>
+<div class="who">
+<div class="soft c-sky rise" style="--i:3"><h3>The series</h3><ul class="bubbles"><li>10 in-person workshops, city by city</li><li>10 live webinars</li><li>One topic, taught by our engineers</li></ul></div>
+<div class="soft c-butter rise" style="--i:4"><h3>Your part in it</h3><ul class="bubbles"><li>A curriculum your team reviews before the tour</li><li>Your tool in a hands-on session at every stop</li><li>The use cases attendees build, suggested by you</li></ul></div>
+</div>
+</div>
+</section>
+
+<!-- 8. Partners: process -->
+<section class="slide" data-name="Process" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">For partners: process</span>
+<h2 class="h pm-h rise" style="--i:1">Five steps <em>to hit the road</em>.</h2>
+<div class="proc rise" style="--i:2">
+<span class="lane">Step</span>
+<div class="step"><i>1</i><b>One meeting: goal alignment and resource compilation</b></div>
+<div class="step"><i>2</i><b>Superoptimal reviews all literature and produces V1 of the curriculum</b></div>
+<div class="step"><i>3</i><b>Partner collects feedback on the curriculum</b></div>
+<div class="step"><i>4</i><b>Superoptimal submits dates and cities</b></div>
+<div class="step"><i>5</i><b>Hitting the road!</b></div>
+<span class="lane">Superoptimal</span>
+<div class="cell us">We agree on goals and the topic with you.</div>
+<div class="cell us">Our engineers write and test every exercise.</div>
+<div class="cell us"></div>
+<div class="cell us">We propose the series calendar, city by city.</div>
+<div class="cell us">We teach the room, laptops open.</div>
+<span class="lane">Your team</span>
+<div class="cell you">Share docs, demos and the use cases that matter to you.</div>
+<div class="cell you"></div>
+<div class="cell you">Review V1 and send your changes.</div>
+<div class="cell you"></div>
+<div class="cell you"></div>
+</div>
+</section>
+
+<!-- 9. Partners: prices -->
+<section class="slide" data-name="Prices" aria-roledescription="slide" hidden>
+<span class="label rise" style="--i:0">For partners: prices</span>
 <h2 class="h inv-h rise" style="--i:1">Two ways to <em>invest</em>.</h2>
 <div class="inv">
 <div class="inv-card one rise" style="--i:2">
@@ -440,14 +491,15 @@ body{overflow:hidden}
 </div>
 <div class="inv-card series rise" style="--i:3">
 <span class="small-h">The series of 20 <em class="best">Best value</em></span>
-<div class="each"><b id="each" data-price="perActivation"></b><span>per activation</span></div>
+<div class="each"><b data-price="series"></b><span>for the series</span></div>
+<p class="per">That is <b id="each" data-price="perActivation"></b> per activation.</p>
 <div class="reel" aria-label="Events in the series"><div class="reel-track" id="inv-reel"></div></div>
 <div class="reel-foot"><div class="ticks" id="inv-ticks" aria-hidden="true"></div><span class="small-h">10 in-person workshops + 10 webinars</span></div>
 </div>
 </div>
 </section>
 
-<!-- 9. Speak with us -->
+<!-- 10. Speak with us -->
 <section class="slide cta" data-name="Speak with us" aria-roledescription="slide" hidden>
 <span class="label rise" style="--i:0">Next step</span>
 <h2 class="h rise" style="--i:1">Speak <em>with us</em>.</h2>
@@ -479,7 +531,7 @@ body{overflow:hidden}
 
 <script>
 /* ---------- edit here: prices and the booking link ---------- */
-const PRICING={perWorkshop:12000,perActivation:5000};
+const PRICING={perWorkshop:12000,perActivation:5000,series:100000};
 /* Diego's booking page, the same link the tour pages use for "Partners: book a call" */
 const BOOKING_URL='https://superoptimal.pipedrive.com/scheduler/4X9vk7CE/meeting-diego-mangabeira-superoptimal';
 
@@ -531,7 +583,7 @@ function clearTimers(){T.forEach(clearTimeout);T=[]}
 /* ---------- static content ---------- */
 document.querySelectorAll('[data-book]').forEach(a=>a.href=BOOKING_URL);
 document.querySelectorAll('[data-price]').forEach(e=>e.textContent=money(PRICING[e.dataset.price]));
-$('#recap').innerHTML=['Agents Running ML Experiments',`${ROUTE.length} cities`,`A series, city by city`,`Series of 20: ${money(PRICING.perActivation)} per activation`].map(t=>`<span>${t}</span>`).join('');
+$('#recap').innerHTML=['Agents Running ML Experiments',`${ROUTE.length} cities`,`A series, city by city`,`Series of 20: ${money(PRICING.series)}`].map(t=>`<span>${t}</span>`).join('');
 $('#agenda').innerHTML=AGENDA.map(([t,h,d,co])=>`<li${co?' class="co"':''}><time>${t}</time><div><b>${h}</b><span>${d}</span>${co?'<span class="co-tag">Co-designed with partner</span>':''}</div></li>`).join('');
 $('#titles').innerHTML=AUDIENCE_TITLES.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('');
 if(AUDIENCE_MIX.length){const m=$('#mix');m.hidden=false;m.innerHTML='<span class="small-h">Room mix</span>'+AUDIENCE_MIX.map(r=>`<div class="mix-row"><span>${r.role}</span><span class="mix-bar"><i data-pct="${r.pct}"></i></span><b>${r.pct}%</b></div>`).join('')}
@@ -617,7 +669,7 @@ function playInvestment(){invReel.play();if(RM)return;shownEach=PRICING.perWorks
 
 /* ---------- slideshow ---------- */
 const slides=[...document.querySelectorAll('.slide')];const N=slides.length;
-const ENTER={'Who we are':rotateLogos,'Topics':playTopics,"Who's in the room":playMix,'Cities':playMap,'A series':playReel,'Investment':playInvestment};
+const ENTER={'Who we are':rotateLogos,'Topics':playTopics,"Who's in the room":playMix,'Cities':playMap,'A series':playReel,'Prices':playInvestment};
 $('#bars').innerHTML=slides.map((s,i)=>`<a class="bar" href="#${i+1}" data-go="${i+1}"><i>${String(i+1).padStart(2,'0')}</i><span>${s.dataset.name}</span></a>`).join('');
 const bars=[...document.querySelectorAll('.bar')];
 $('#dots').innerHTML=slides.map((s,i)=>`<button class="dot" type="button" data-go="${i+1}" aria-label="Slide ${i+1}: ${s.dataset.name}"></button>`).join('');
